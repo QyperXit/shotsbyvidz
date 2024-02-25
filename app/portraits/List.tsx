@@ -3,7 +3,7 @@ import React from "react";
 
 // import Image from "next/image";
 // import { items } from "../components/data";
-import dataSet from "../images/portraits/dataSet";
+import dataSet from "../../public/portraits/dataSet";
 
 const Card = ({ setSelected, item }) => {
   return (

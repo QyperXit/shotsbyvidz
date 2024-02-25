@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-import cat from "../images/cat.jpg";
+import cat from "../../public/images/cat.jpg";
 
 const Contact = () => {
   return (

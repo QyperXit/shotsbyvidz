@@ -24,17 +24,22 @@ const NavBar = () => {
       <ExampleWrapper />
 
       <div className="navbar  hidden sm:flex flex-col sm:flex-row  gap-12  justify-center  pt-22 font-serif text-lg">
-        <BottomLine href="#">Home</BottomLine>{" "}
-        <span className=" text-[10px]">◇</span>
+        {/* <Link href="/"> */}
+        <BottomLine href="/">Home</BottomLine> {/* </Link> */}
+        <span className="sm:hidden md:flex text-[10px]">◇</span>
         <FlyoutLink href="#" FlyoutContent={GalleriesContent}>
           Galleries
         </FlyoutLink>{" "}
-        <span className=" text-[10px]">◇</span>
+        <span className="sm:hidden md:flex text-[10px]">◇</span>
         <BottomLine href="#">Blog</BottomLine>
-        <span className=" text-[10px]">◇</span>
-        <BottomLine href="#">About</BottomLine>
-        <span className=" text-[10px]">◇</span>
-        <BottomLine href="#">Contact</BottomLine>
+        <span className="sm:hidden md:flex text-[10px]">◇</span>
+        {/* <Link href="/about"> */}
+        <BottomLine href="/about">About</BottomLine>
+        {/* </Link> */}
+        <span className="sm:hidden md:flex text-[10px]">◇</span>
+        {/* <Link href="/contact"> */}
+        <BottomLine href="/contact">Contact</BottomLine>
+        {/* </Link> */}
       </div>
     </nav>
   );
@@ -56,7 +61,7 @@ const BottomLine: React.FC<BottomLineProps> = ({ children, href }) => {
       onMouseLeave={() => setHovered(false)}
       className="relative w-fit h-fit"
     >
-      <a href={href} className="relative text-white">
+      <Link href={href} className="relative text-white">
         {children}
         <motion.span
           initial={{ scaleX: 0 }}
@@ -64,7 +69,7 @@ const BottomLine: React.FC<BottomLineProps> = ({ children, href }) => {
           transition={{ duration: 0.3 }}
           className="absolute bottom-[-10px] left-0 right-0 h-1 origin-left rounded-full bg-amber-400 transition-transform duration-300 ease-out"
         />
-      </a>
+      </Link>
     </div>
   );
 };

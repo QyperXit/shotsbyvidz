@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card"; // Import the Card component
 
-import images from "../images/data";
+import images from "../../public/images/data";
 
 interface HeroImagesProps {
   setSelected: React.Dispatch<React.SetStateAction<any>>; // Update any to the appropriate type

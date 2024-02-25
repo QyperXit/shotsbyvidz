@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-import chaunPolaNeck from "../images/portraits/me.jpg";
+import chaunPolaNeck from "../../public/portraits/me.jpg";
 import about from "./about";
 
 const page = () => {
