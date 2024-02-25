@@ -32,7 +32,7 @@ const NavBar = () => {
         <span className=" text-[10px]">◇</span>
         <BottomLine href="#">Blog</BottomLine>
         <span className=" text-[10px]">◇</span>
-        <BottomLine href="#">About</BottomLine>{" "}
+        <BottomLine href="#">About</BottomLine>
         <span className=" text-[10px]">◇</span>
         <BottomLine href="#">Contact</BottomLine>
       </div>
