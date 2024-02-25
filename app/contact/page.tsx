@@ -13,7 +13,7 @@ const Contact = () => {
         <div className="flex space-x-4">
           <div>
             <label htmlFor="firstName" className="block  text-white">
-              Name*
+              Name**
             </label>
             <input
               type="text"
