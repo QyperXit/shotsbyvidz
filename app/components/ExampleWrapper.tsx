@@ -49,8 +49,11 @@ const SpringModal: React.FC<SpringModalProps> = ({ isOpen, setIsOpen }) => {
             onClick={(e) => e.stopPropagation()}
             className="bg-black text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
           >
-            <div className="navbar  sm:flex flex-col sm:flex-row  gap-4  justify-center text-3xl  font-abhaya-libre-semibold">
-              <BottomLine href="#">Home</BottomLine>
+            <div
+              className="navbar  sm:flex flex-col sm:flex-row  gap-4  justify-center text-3xl  font-abhaya-libre-semibold"
+              onClick={() => setIsOpen(false)}
+            >
+              <BottomLine href="/">Home</BottomLine>
               <div
                 className="w-fit h-fit"
                 onMouseEnter={() => setMenu(true)}
@@ -74,35 +77,30 @@ const SpringModal: React.FC<SpringModalProps> = ({ isOpen, setIsOpen }) => {
                   >
                     <Link
                       href="/portraits"
-                      onClick={() => setIsOpen(false)}
                       className="  text-xl hover:text-amber-400"
                     >
                       Portraits
                     </Link>
                     <Link
                       href="/stilllife"
-                      onClick={() => setIsOpen(false)}
                       className=" text-xl hover:text-amber-400"
                     >
                       Still Life
                     </Link>
                     <Link
                       href="/nature"
-                      onClick={() => setIsOpen(false)}
                       className=" text-xl hover:text-amber-400"
                     >
                       Nature & Landscape
                     </Link>
                     <Link
                       href="/automotive"
-                      onClick={() => setIsOpen(false)}
                       className=" text-xl hover:text-amber-400"
                     >
                       Automotive
                     </Link>
                     <Link
                       href="/urban"
-                      onClick={() => setIsOpen(false)}
                       className=" text-xl hover:text-amber-400"
                     >
                       Urban
@@ -111,8 +109,8 @@ const SpringModal: React.FC<SpringModalProps> = ({ isOpen, setIsOpen }) => {
                 </AnimatePresence>
               )}
               <BottomLine href="#">Blog</BottomLine>
-              <BottomLine href="#">About</BottomLine>
-              <BottomLine href="#">Contact</BottomLine>
+              <BottomLine href="/about">About</BottomLine>
+              <BottomLine href="/contact">Contact</BottomLine>
             </div>
           </motion.div>
         </motion.div>
@@ -135,7 +133,7 @@ const BottomLine: React.FC<BottomLineProps> = ({ children, href }) => {
       onMouseLeave={() => setHovered(false)}
       className="relative w-fit h-fit"
     >
-      <a href={href} className="relative text-white">
+      <Link href={href} className="relative text-white">
         {children}
         <motion.span
           initial={{ scaleX: 0 }}
@@ -143,7 +141,7 @@ const BottomLine: React.FC<BottomLineProps> = ({ children, href }) => {
           transition={{ duration: 0.3 }}
           className="absolute bottom-[-10px] left-0 right-0 h-1 origin-left rounded-full bg-amber-400 transition-transform duration-300 ease-out"
         />
-      </a>
+      </Link>
     </div>
   );
 };

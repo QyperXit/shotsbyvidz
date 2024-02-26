@@ -6,7 +6,7 @@ import about from "./about";
 
 const page = () => {
   return (
-    <div className="flex  flex-col  max-w-[1440px] mx-auto lg:px-24 xl:px-32 bg-black mb-8 md:flex-row">
+    <div className="flex  flex-col  max-w-[1440px] mx-auto lg:px-24 xl:px-32 bg-black mb-8 md:flex-row my-auto">
       <div className="w-[60%] m-auto  bg-black">
         <Image
           src={chaunPolaNeck}

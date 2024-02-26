@@ -5,7 +5,7 @@ import cat from "../../public/images/cat.jpg";
 
 const Contact = () => {
   return (
-    <div className="flex justify-center   my-32  gap-24 items-center">
+    <div className="  flex-col  flex justify-center  lg:flex-row px-4  my-32  gap-24 items-center my-auto">
       <div className=" w-fit  max-w-[35em] bg-black">
         <Image
           src={cat}

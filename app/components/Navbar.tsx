@@ -14,7 +14,7 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="flex sm:flex-col flex-row justify-between sm:justify-center items-center gap-4 bg-black  py-28 px-[min(5vw,20em)] ">
+    <nav className="flex sm:flex-col flex-row justify-between sm:justify-center items-center gap-4 bg-black  md:py-28 px-[min(5vw,20em)] py-8">
       <Link
         href="/"
         className=" text-white cursor-pointer  hover:text-gray-300 font-abhaya-libre-semibold font-medium  text-2xl sm:text-4xl lg:text-5xl "

@@ -8,17 +8,12 @@
 
 :root {
   background: black;
+  scroll-behavior: smooth;
 }
 
 body {
-  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
   background: black;
-
-  /* padding-inline:min(5vw,20em); */
 }
-/* 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
