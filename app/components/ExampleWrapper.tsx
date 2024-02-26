@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 interface SpringModalProps {
@@ -71,21 +72,41 @@ const SpringModal: React.FC<SpringModalProps> = ({ isOpen, setIsOpen }) => {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     className="flex flex-col menu text-2xl"
                   >
-                    <a href="#" className="  text-xl hover:text-amber-400">
+                    <Link
+                      href="/portraits"
+                      onClick={() => setIsOpen(false)}
+                      className="  text-xl hover:text-amber-400"
+                    >
                       Portraits
-                    </a>
-                    <a href="#" className=" text-xl hover:text-amber-400">
+                    </Link>
+                    <Link
+                      href="/stilllife"
+                      onClick={() => setIsOpen(false)}
+                      className=" text-xl hover:text-amber-400"
+                    >
                       Still Life
-                    </a>
-                    <a href="#" className=" text-xl hover:text-amber-400">
+                    </Link>
+                    <Link
+                      href="/nature"
+                      onClick={() => setIsOpen(false)}
+                      className=" text-xl hover:text-amber-400"
+                    >
                       Nature & Landscape
-                    </a>
-                    <a href="#" className=" text-xl hover:text-amber-400">
+                    </Link>
+                    <Link
+                      href="/automotive"
+                      onClick={() => setIsOpen(false)}
+                      className=" text-xl hover:text-amber-400"
+                    >
                       Automotive
-                    </a>
-                    <a href="#" className=" text-xl hover:text-amber-400">
+                    </Link>
+                    <Link
+                      href="/urban"
+                      onClick={() => setIsOpen(false)}
+                      className=" text-xl hover:text-amber-400"
+                    >
                       Urban
-                    </a>
+                    </Link>
                   </motion.div>
                 </AnimatePresence>
               )}

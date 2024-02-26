@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 
 // import { items } from "../components/data";
-import items from "../../public/stilllife/images";
+import items from "../../public/still/data";
 
 const Card = ({ setSelected, item }) => {
   return (
