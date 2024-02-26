@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 import chaunPolaNeck from "../../public/portraits/me.jpg";
@@ -17,7 +18,7 @@ const page = () => {
           placeholder="blur"
         />
       </div>
-      <div className=" bg-[#EEEEEE] flex flex-col justify-center items-center w-[90%] md:w-[60%] px-[2.5em] sm:px-[2em] lg:px-[5em] py-12 lg:py-32 md:py-1 m-auto">
+      <div className=" bg-[#EEEEEE] flex flex-col justify-center items-center w-[90%] md:w-[60%] px-[2.5em] sm:px-[2em] lg:px-[5em] py-12 lg:py-32 md:py-3 m-auto">
         <h1 className="  text-zinc-700   w-fit text-3xl  text-center mb-6 ">
           {about[0].h1}
         </h1>
@@ -29,9 +30,12 @@ const page = () => {
             {line}
           </p>
         ))}
-        <button className="bg-[#860C0C]  text-white  px-10 py-5 mt-16 hover:bg-[#880c0c8e] transition duration-200 ease-in">
+        <Link
+          href="/contact"
+          className="bg-[#860C0C]  text-white  px-10 py-5 mt-16 hover:bg-[#880c0c8e] transition duration-200 ease-in"
+        >
           Contact Me
-        </button>
+        </Link>
       </div>
     </div>
   );

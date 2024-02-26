@@ -8,7 +8,7 @@ interface SpringModalProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ExampleWrapper = () => {
+const IconModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="px-4 bg-black grid place-content-center sm:hidden">
@@ -146,4 +146,4 @@ const BottomLine: React.FC<BottomLineProps> = ({ children, href }) => {
   );
 };
 
-export default ExampleWrapper;
+export default IconModal;

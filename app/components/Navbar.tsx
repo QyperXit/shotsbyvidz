@@ -8,7 +8,7 @@ import React, { useState } from "react";
 
 import "../fontfamily.css";
 // import { PortraitsPage } from "../pages/index";
-import ExampleWrapper from "./ExampleWrapper";
+import IconModal from "./IconModal";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +21,7 @@ const NavBar = () => {
       >
         ShotsByVidz
       </Link>
-      <ExampleWrapper />
+      <IconModal />
 
       <div className="navbar  hidden sm:flex flex-col sm:flex-row  gap-12  justify-center  pt-22 font-serif text-lg">
         {/* <Link href="/"> */}
