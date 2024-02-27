@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       fontFamily: {
         "abhaya-libre-semibold": ['"Abhaya Libre"', "serif"],
+        arial: ["Arial", "sans-serif"],
       },
     },
   },
