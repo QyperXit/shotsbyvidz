@@ -105,7 +105,7 @@ const SpringModal: React.FC<SpringModalProps> = ({ isOpen, setIsOpen }) => {
                   </motion.div>
                 </AnimatePresence>
               )}
-              <BottomLine href="#">Blog</BottomLine>
+              <BottomLine href="/blog">Blog</BottomLine>
               <BottomLine href="/about">About</BottomLine>
               <BottomLine href="/contact">Contact</BottomLine>
             </div>

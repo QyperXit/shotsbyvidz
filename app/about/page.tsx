@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -8,7 +11,12 @@ import about from "./about";
 const page = () => {
   return (
     <div className="flex  flex-col  max-w-[1440px] mx-auto lg:px-24 xl:px-32 bg-black mb-8 md:flex-row my-auto">
-      <div className="w-[60%] m-auto  bg-black">
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-[60%] m-auto  bg-black"
+      >
         <Image
           src={chaunPolaNeck}
           width={1080}
@@ -17,8 +25,13 @@ const page = () => {
           className="object-contain   "
           placeholder="blur"
         />
-      </div>
-      <div className=" bg-[#EEEEEE] flex flex-col justify-center items-center w-[90%] md:w-[60%] px-[2.5em] sm:px-[2em] lg:px-[5em] py-12 lg:py-32 md:py-3 m-auto">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className=" bg-[#EEEEEE] flex flex-col justify-center items-center w-[90%] md:w-[60%] px-[2.5em] sm:px-[2em] lg:px-[5em] py-12 lg:py-32 md:py-3 m-auto"
+      >
         <h1 className="  text-zinc-700   w-fit text-3xl  text-center mb-6 ">
           {about[0].h1}
         </h1>
@@ -36,7 +49,7 @@ const page = () => {
         >
           Contact Me
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 };

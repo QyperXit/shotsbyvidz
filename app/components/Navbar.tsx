@@ -31,7 +31,7 @@ const NavBar = () => {
           Galleries
         </FlyoutLink>{" "}
         <span className="sm:hidden md:flex text-[10px]">◇</span>
-        <BottomLine href="#">Blog</BottomLine>
+        <BottomLine href="/blog">Blog</BottomLine>
         <span className="sm:hidden md:flex text-[10px]">◇</span>
         {/* <Link href="/about"> */}
         <BottomLine href="/about">About</BottomLine>

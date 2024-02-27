@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 
@@ -6,7 +8,12 @@ import cat from "../../public/images/cat.jpg";
 const Contact = () => {
   return (
     <div className="flex-col flex justify-center lg:flex-row px my-32 gap-24 items-center my-auto">
-      <div className="w-fit max-w-[35em] bg-black">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-fit max-w-[35em] bg-black"
+      >
         <Image
           src={cat}
           width={1080}
@@ -15,8 +22,13 @@ const Contact = () => {
           className="object-contain"
           placeholder="blur"
         />
-      </div>
-      <div className="max-w-md">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-md"
+      >
         <p className="text-sm text-center text-white">- CONTACT</p>
         <h2 className="text-4xl text-white mb-4 text-center font-sans font-normal mt-7">
           Get in touch
@@ -85,7 +97,7 @@ const Contact = () => {
             Submit
           </button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };
