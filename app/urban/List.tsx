@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-// import Image from "next/image";
-// import { items } from "../components/data";
 import items from "../../public/urban/urban";
 
 const Card = ({ setSelected, item }) => {

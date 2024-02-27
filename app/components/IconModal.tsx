@@ -62,9 +62,6 @@ const SpringModal: React.FC<SpringModalProps> = ({ isOpen, setIsOpen }) => {
                 <BottomLine href="#">Galleries</BottomLine>
               </div>
 
-              {/* <FlyoutLink href="#" FlyoutContent={GalleriesContent}>
-                Galleries
-              </FlyoutLink> */}
               {menu && (
                 <AnimatePresence>
                   <motion.div

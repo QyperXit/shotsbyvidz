@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({ setSelected, item }) => {
         initial={{ width: 0, scale: 0.095, opacity: 0 }}
         animate={{ width: loaded ? "100%" : 0, scale: 1, opacity: 1 }}
         exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
-        transition={{ duration: 0.9, delay: 0.003 }} // Add a delay of 0.03 seconds
+        transition={{ duration: 0.3, delay: 0.003 }} // Add a delay of 0.03 seconds
         whileHover={{
           scale: 1.025,
           opacity: 0.5,

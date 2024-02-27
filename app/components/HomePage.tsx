@@ -10,7 +10,6 @@ const HomePage = () => {
     <>
       <HeroImages setSelected={setSelected} />
       <Modal selected={selected} setSelected={setSelected} />
-      {/* <PortraitsPage setSelected={setSelected} /> */}
     </>
   );
 };
