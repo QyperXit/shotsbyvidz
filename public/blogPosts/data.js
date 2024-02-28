@@ -4,7 +4,7 @@ export const items = [
     url: "/blogPosts/manzil.jpg",
     title: "Product photography Ideas",
     description:
-      "As the sun gently rises, casting its golden hues upon the land, nature awakens to greet the new day with a symphony of color and song.",
+      "I've been experimenting with a product photography concept for a client, using only Darktable.",
     tags: ["Mountains", "Aesthetic", "Pretty", "Scenic", "Rugged"],
   },
   {
@@ -12,7 +12,7 @@ export const items = [
     url: "/blogPosts/tapwater.jpg",
     title: "Church Stretton Camp & Fish",
     description:
-      "Amidst towering peaks and serene valleys, where the air is crisp and pure, lies a tranquil haven of peace and beauty waiting to be discovered.",
+      "This photo captures a serene moment from a camping trip with friends, showcasing the gentle flow of local tap water set against a beautifully blurred backdrop.",
     tags: ["Mountains", "Aesthetic", "Pretty", "Scenic", "Rugged"],
   },
   {
@@ -20,7 +20,7 @@ export const items = [
     url: "/blogPosts/church.jpg",
     title: "A Church next to a School...",
     description:
-      "In the heart of the ancient woods, where the trees whisper secrets of old, one can find solace and connection amidst nature's timeless embrace.",
+      "Taken along a quiet country lane, this photo shows a cemetery church next to a school, creating a serene scene in the countryside.",
     tags: ["Mountains", "Aesthetic", "Pretty", "Scenic", "Rugged"],
   },
   {
@@ -28,7 +28,7 @@ export const items = [
     url: "/blogPosts/drone.jpg",
     title: "Dji mini 2",
     description:
-      "As waves gently caress the shore and seagulls dance in the sky, the ocean sings a melodic lullaby, inviting all to surrender to its eternal rhythm.",
+      "This photo was captured using the DJI Mini 2, which belongs to my friend. I'm definitely considering getting one for myself. The drone shots it takes are truly amazing.",
     tags: ["Mountains", "Aesthetic", "Pretty", "Scenic", "Rugged"],
   },
   {
@@ -36,7 +36,7 @@ export const items = [
     url: "/blogPosts/horse.jpg",
     title: "Deer Park Farm",
     description:
-      "In fields of wildflowers that sway in the gentle breeze, one can hear the soft whispers of the meadow, a testament to the beauty and resilience of nature.",
+      "This photo features a horse that was part of the Airbnb where my wife and I spent a memorable Christmas.",
     tags: ["Mountains", "Aesthetic", "Pretty", "Scenic", "Rugged"],
   },
   {
@@ -44,15 +44,14 @@ export const items = [
     url: "/blogPosts/churchClock.jpg",
     title: "Black & White (Color Calibration)",
     description:
-      "As the day fades into night and the sky is painted with hues of pink and gold, the world is enveloped in a gentle hush, a whispered promise of dreams to come.",
+      "This is a black and white photo I edited using the 'Color Calibration' module in Darktable.",
     tags: ["Mountains", "Aesthetic", "Pretty", "Scenic", "Rugged"],
   },
   {
     id: 7,
     url: "/blogPosts/fire.jpg",
     title: "Lantern",
-    description:
-      "As the tide ebbs and flows, carrying secrets from distant shores, the ocean whispers tales of love, loss, and endless adventure, beckoning all to its boundless depths.",
+    description: "This photo was captured at a war memorial park in Coventry.",
     tags: ["Mountains", "Aesthetic", "Pretty", "Scenic", "Rugged"],
   },
   {
@@ -60,7 +59,7 @@ export const items = [
     url: "/blogPosts/lakeSign.jpg",
     title: "Engine Pool",
     description:
-      "In the vast expanse of space, where stars twinkle like diamonds in the velvet night sky, the universe whispers secrets of creation and the mysteries of existence.",
+      "This photograph was taken at a lake in Solihull. I can't quite recall the name of the area!",
     tags: ["Mountains", "Aesthetic", "Pretty", "Scenic", "Rugged"],
   },
   {
@@ -68,15 +67,14 @@ export const items = [
     url: "/blogPosts/swan.jpg",
     title: "Swan",
     description:
-      "As darkness descends and the stars emerge to illuminate the heavens, the night whispers secrets known only to those who dare to listen, revealing the beauty of the unseen.",
+      "A swan gracefully gliding across a serene lake in the heart of nature.",
     tags: ["Mountains", "Aesthetic", "Pretty", "Scenic", "Rugged"],
   },
   {
     id: 10,
     url: "/blogPosts/redlight.jpg",
     title: "Red Light",
-    description:
-      "In the rustle of leaves and the gentle sway of branches, one can hear the whispers of the winds, carrying messages from distant lands and tales of adventure untold.",
+    description: "Captured at the bustling New Street Station in Birmingham.",
     tags: ["Mountains", "Aesthetic", "Pretty", "Scenic", "Rugged"],
   },
   {
