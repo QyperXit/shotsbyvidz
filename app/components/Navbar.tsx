@@ -23,7 +23,7 @@ const NavBar = () => {
       </Link>
       <IconModal />
 
-      <div className="navbar  hidden sm:flex flex-col sm:flex-row  gap-12  justify-center  pt-22 font-serif text-xl">
+      <div className="navbar  hidden sm:flex flex-col sm:flex-row  mt-5 gap-12  justify-center  pt-22 font-serif text-xl">
         {/* <Link href="/"> */}
         <BottomLine href="/">Home</BottomLine> {/* </Link> */}
         <span className="sm:hidden md:flex text-[10px]">◇</span>

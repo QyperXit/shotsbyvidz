@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import React from "react";
 
 import items from "../../public/nature/nature";
@@ -6,7 +7,7 @@ import items from "../../public/nature/nature";
 const Card = ({ setSelected, item }) => {
   return (
     <div className="mb-4 w-full inline-block">
-      <motion.img
+      <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -22,11 +23,17 @@ const Card = ({ setSelected, item }) => {
         onClick={() => {
           setSelected(item);
         }}
-        src={item.url}
-        alt=""
-        className="  w-full shadow-xl image-full cursor-pointer"
         layoutId={`card-${item.id}`}
-      />
+        className="  w-full shadow-xl image-full cursor-pointer"
+      >
+        <Image
+          src={item.url}
+          alt={item.title}
+          width={1080}
+          height={1080}
+          loading="lazy"
+        />
+      </motion.div>
     </div>
   );
 };

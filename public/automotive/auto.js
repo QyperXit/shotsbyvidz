@@ -10,5 +10,11 @@ const images = [
   { id: 9, url: "/automotive/myOldie.jpg" },
 ];
 
-export default images;
+const prefix = "https://ik.imagekit.io/er0iab8sp";
 
+const imagesWithPrefix = images.map((image) => ({
+  ...image,
+  url: prefix + image.url,
+}));
+
+export default imagesWithPrefix;

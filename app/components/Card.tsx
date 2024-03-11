@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 interface CardProps {
@@ -16,7 +17,7 @@ const Card: React.FC<CardProps> = ({ setSelected, item }) => {
 
   return (
     <div className="mb-4 w-full inline-block">
-      <motion.img
+      <motion.div
         initial={{ width: 0, scale: 0.095, opacity: 0 }}
         animate={{ width: loaded ? "100%" : 0, scale: 1, opacity: 1 }}
         // exit={{ width: 50, transition: { duration: 0.8 } }}
@@ -35,10 +36,17 @@ const Card: React.FC<CardProps> = ({ setSelected, item }) => {
           setSelected(item);
         }}
         layoutId={`card-${item.id}`}
-        src={item.url}
-        alt={item.title}
         className="w-full bg-base-100 shadow-xl image-full cursor-pointer"
-      />
+      >
+        <Image
+          className="w-full bg-base-100 shadow-xl image-full cursor-pointer"
+          src={item.url}
+          alt={item.title}
+          width={1080}
+          height={1080}
+          loading="lazy"
+        />
+      </motion.div>
     </div>
   );
 };

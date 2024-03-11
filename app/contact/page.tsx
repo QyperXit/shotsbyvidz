@@ -21,6 +21,7 @@ const Contact = () => {
           alt="cat picture"
           className="object-contain"
           placeholder="blur"
+          loading="lazy"
         />
       </motion.div>
       <motion.div
@@ -85,7 +86,7 @@ const Contact = () => {
               id="message"
               name="message"
               placeholder="Enter your message"
-              rows="4"
+              rows={4}
               className="w-full border bg-white rounded py-2 px-3 focus:outline-none focus:border-amber-500"
               required
             ></textarea>

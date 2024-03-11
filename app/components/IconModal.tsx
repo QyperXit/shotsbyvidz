@@ -11,7 +11,7 @@ interface SpringModalProps {
 const IconModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="px-4 bg-black grid place-content-center sm:hidden">
+    <div className=" bg-black grid place-content-center sm:hidden">
       <button
         onClick={() => setIsOpen(true)}
         className=" text-white font-medium  rounded hover:opacity-90 transition-opacity"
@@ -32,6 +32,8 @@ const IconModal = () => {
 const SpringModal: React.FC<SpringModalProps> = ({ isOpen, setIsOpen }) => {
   const [menu, setMenu] = useState(false);
 
+  const handleOpen = () => setMenu((prevMenu) => !prevMenu);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -39,7 +41,10 @@ const SpringModal: React.FC<SpringModalProps> = ({ isOpen, setIsOpen }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={() => setIsOpen(false)}
+          onClick={() => {
+            setIsOpen(false);
+            setMenu((prevMenu) => !prevMenu);
+          }}
           className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer"
         >
           <motion.div
@@ -49,15 +54,20 @@ const SpringModal: React.FC<SpringModalProps> = ({ isOpen, setIsOpen }) => {
             onClick={(e) => e.stopPropagation()}
             className="bg-black text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
           >
-            <div
-              className="navbar  sm:flex flex-col sm:flex-row  gap-4  justify-center text-3xl  font-abhaya-libre-semibold"
-              onClick={() => setIsOpen(false)}
-            >
-              <BottomLine href="/">Home</BottomLine>
+            <div className="navbar  sm:flex flex-col sm:flex-row  gap-4  justify-center text-3xl  font-abhaya-libre-semibold">
+              <div
+                onClick={() => {
+                  setIsOpen(false);
+                  setMenu((prevMenu) => !prevMenu);
+                }}
+              >
+                <BottomLine href="/">Home</BottomLine>
+              </div>
               <div
                 className="w-fit h-fit"
-                onMouseEnter={() => setMenu(true)}
-                onMouseLeave={() => setTimeout(() => setMenu(false), 7000)} // Delay setting menu to false
+                // onMouseEnter={() => setMenu(true)}
+                // onMouseLeave={() => setTimeout(() => setMenu(false), 7000)} // Delay setting menu to false
+                onClick={handleOpen}
               >
                 <BottomLine href="#">Galleries</BottomLine>
               </div>
@@ -75,39 +85,80 @@ const SpringModal: React.FC<SpringModalProps> = ({ isOpen, setIsOpen }) => {
                     <Link
                       href="/portraits"
                       className="  text-xl hover:text-amber-400"
+                      onClick={() => {
+                        setIsOpen(false);
+                        setMenu((prevMenu) => !prevMenu);
+                      }}
                     >
                       Portraits
                     </Link>
                     <Link
                       href="/stilllife"
                       className=" text-xl hover:text-amber-400"
+                      onClick={() => {
+                        setIsOpen(false);
+                        setMenu((prevMenu) => !prevMenu);
+                      }}
                     >
                       Still Life
                     </Link>
                     <Link
                       href="/nature"
                       className=" text-xl hover:text-amber-400"
+                      onClick={() => {
+                        setIsOpen(false);
+                        setMenu((prevMenu) => !prevMenu);
+                      }}
                     >
                       Nature & Landscape
                     </Link>
                     <Link
                       href="/automotive"
                       className=" text-xl hover:text-amber-400"
+                      onClick={() => {
+                        setIsOpen(false);
+                        setMenu((prevMenu) => !prevMenu);
+                      }}
                     >
                       Automotive
                     </Link>
                     <Link
                       href="/urban"
                       className=" text-xl hover:text-amber-400"
+                      onClick={() => {
+                        setIsOpen(false);
+                        setMenu((prevMenu) => !prevMenu);
+                      }}
                     >
                       Urban
                     </Link>
                   </motion.div>
                 </AnimatePresence>
               )}
-              <BottomLine href="/blog">Blog</BottomLine>
-              <BottomLine href="/about">About</BottomLine>
-              <BottomLine href="/contact">Contact</BottomLine>
+              <div
+                onClick={() => {
+                  setIsOpen(false);
+                  setMenu((prevMenu) => !prevMenu);
+                }}
+              >
+                <BottomLine href="/blog">Blog</BottomLine>
+              </div>
+              <div
+                onClick={() => {
+                  setIsOpen(false);
+                  setMenu((prevMenu) => !prevMenu);
+                }}
+              >
+                <BottomLine href="/about">About</BottomLine>
+              </div>
+              <div
+                onClick={() => {
+                  setIsOpen(false);
+                  setMenu((prevMenu) => !prevMenu);
+                }}
+              >
+                <BottomLine href="/contact">Contact</BottomLine>
+              </div>
             </div>
           </motion.div>
         </motion.div>

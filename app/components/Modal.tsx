@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import React from "react";
 
 interface ModalProps {
@@ -20,7 +21,12 @@ const Modal: React.FC<ModalProps> = ({ selected, setSelected }) => {
         className=" w-full max-w-[960px] mx-auto my-24 px-8 cursor-default"
       >
         <motion.div layoutId={`card-${selected.id}`}>
-          <img src={selected.url} />
+          <Image
+            alt={selected.id}
+            src={selected.url}
+            width={1080}
+            height={1080}
+          />
         </motion.div>
         <motion.div
           initial={{

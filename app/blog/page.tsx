@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import BlogModal from "./BlogModal";
 import List from "./List";
 
-const page = () => {
+const Page = () => {
   const [selected, setSelected] = useState(null);
   return (
     <>
@@ -14,4 +14,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

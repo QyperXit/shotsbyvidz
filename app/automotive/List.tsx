@@ -1,12 +1,21 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import React from "react";
 
 import items from "../../public/automotive/auto";
 
-const Card = ({ setSelected, item }) => {
+type ItemType = (typeof items)[0]; // Assuming items is an array of objects, choose the index that represents one item
+
+// Define CardProps interface with the correct types
+interface CardProps {
+  setSelected: React.Dispatch<React.SetStateAction<ItemType>>;
+  item: ItemType;
+}
+
+const Card: React.FC<CardProps> = ({ setSelected, item }) => {
   return (
     <div className="mb-4 w-full inline-block">
-      <motion.img
+      <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -22,16 +31,24 @@ const Card = ({ setSelected, item }) => {
         onClick={() => {
           setSelected(item);
         }}
-        src={item.url}
-        alt=""
         className="  w-full shadow-xl image-full cursor-pointer"
         layoutId={`card-${item.id}`}
-      />
+      >
+        <Image
+          src={item.url}
+          alt={String(item.id)}
+          width={1080}
+          height={1080}
+          loading="lazy"
+        />
+      </motion.div>
     </div>
   );
 };
 
-const List = ({ setSelected }) => {
+const List: React.FC<{
+  setSelected: React.Dispatch<React.SetStateAction<ItemType>>;
+}> = ({ setSelected }) => {
   return (
     <div className="bg-black p-4 px-[min(5vw,20em)]">
       <div className=" columns-1 sx:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-5 bg-black">

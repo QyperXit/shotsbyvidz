@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import List from "./List";
 import PortModal from "./PortModal";
 
-const portraits = () => {
+const Portraits = () => {
   const [selected, setSelected] = useState(null);
   return (
     <>
@@ -14,4 +14,4 @@ const portraits = () => {
   );
 };
 
-export default portraits;
+export default Portraits;

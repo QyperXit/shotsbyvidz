@@ -9,4 +9,11 @@ const images = [
   { id: 8, url: "/portraits/vanSolihull.png" },
 ];
 
-export default images;
+const prefix = "https://ik.imagekit.io/er0iab8sp";
+
+const imagesWithPrefix = images.map((image) => ({
+  ...image,
+  url: prefix + image.url,
+}));
+
+export default imagesWithPrefix;
