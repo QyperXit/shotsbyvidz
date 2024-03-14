@@ -7,6 +7,7 @@ const images = [
   { id: 6, url: "/portraits/mask.png" },
   { id: 7, url: "/portraits/melBloom.png" },
   { id: 8, url: "/portraits/vanSolihull.png" },
+  { id: 9, url: "/portraits/Fran.png" },
 ];
 
 const prefix = "https://ik.imagekit.io/er0iab8sp";
