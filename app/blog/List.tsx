@@ -37,7 +37,7 @@ const Card = ({ setSelected, item }) => {
       <h3 className="font-bold mb-1 font-arial text-amber-400 weight pt-4 text-lg">
         {item.title}
       </h3>
-      <p>{item.description}</p>
+      <p className=" text-gray-200">{item.description}</p>
     </div>
   );
 };
