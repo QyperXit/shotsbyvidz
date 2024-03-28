@@ -1,3 +1,11 @@
+## Disclaimer
+
+**Copyright Notice**: <span style="color:red;">The `public` folder, which contains images and other media assets, has been removed from this repository to protect my own copyrighted material.</span>
+
+Please note that the `public` folder originally contained my personal images and media assets, which are protected by copyright. Removing these assets from the repository ensures that they are not redistributed without my permission.
+
+If you wish to use any of the images or media assets found in this project, please contact me for permission and licensing information.
+
 # Personal Portfolio Website
 
 ## Introduction
@@ -36,13 +44,5 @@ pnpm dev
 # or
 bun dev
 ```
-
-## Disclaimer
-
-<span style="color: red;">**Copyright Notice**: The `public` folder, which contains images and other media assets, has been removed from this repository to protect my own copyrighted material.</span>
-
-Please note that the `public` folder originally contained my personal images and media assets, which are protected by copyright. Removing these assets from the repository ensures that they are not redistributed without my permission.
-
-If you wish to use any of the images or media assets found in this project, please contact me for permission and licensing information.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
