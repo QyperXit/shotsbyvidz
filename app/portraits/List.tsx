@@ -6,7 +6,7 @@ import dataSet from "../../public/portraits/dataSet";
 
 const Card = ({ setSelected, item }) => {
   return (
-    <div className="mb-4 w-full inline-block">
+    <div className="inline-block w-full mb-4">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -23,12 +23,12 @@ const Card = ({ setSelected, item }) => {
         onClick={() => {
           setSelected(item);
         }}
-        className="  w-full shadow-xl image-full cursor-pointer"
+        className="w-full shadow-xl cursor-pointer  image-full"
         layoutId={`card-${item.id}`}
       >
         <Image
           src={item.url}
-          alt={item.title}
+          alt={item.alt}
           width={1080}
           height={1080}
           loading="lazy"
@@ -41,7 +41,7 @@ const Card = ({ setSelected, item }) => {
 const List = ({ setSelected }) => {
   return (
     <div className="bg-black p-4 px-[min(5vw,20em)]">
-      <div className=" columns-1 sx:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-5 bg-black">
+      <div className="gap-5 bg-black  columns-1 sx:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
         {dataSet.map((item) => (
           <Card key={item.id} setSelected={setSelected} item={item} />
         ))}

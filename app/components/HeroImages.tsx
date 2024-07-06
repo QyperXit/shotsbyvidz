@@ -24,7 +24,7 @@ const HeroImages: React.FC<{
 
   return (
     <div className="bg-black p-4 px-[min(5vw,20em)]">
-      <div className="columns-1 sx:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-5">
+      <div className="gap-5 columns-1 sx:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
         {images.map((item) => {
           const transformations = `tr=w-${imageSize}`;
           const url = `${item.url}?${transformations}`;
