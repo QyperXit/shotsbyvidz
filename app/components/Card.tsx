@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { imageKitLoader } from "../utils/imageLoader"; // Adjust the path based on your directory structure
+
 import React, { useEffect, useState } from "react";
 
 interface CardProps {
@@ -16,7 +18,7 @@ const Card: React.FC<CardProps> = ({ setSelected, item }) => {
   }, []);
 
   return (
-    <div className="mb-4 w-full inline-block">
+    <div className="inline-block w-full mb-4">
       <motion.div
         initial={{ width: 0, scale: 0.095, opacity: 0 }}
         animate={{ width: loaded ? "100%" : 0, scale: 1, opacity: 1 }}
@@ -36,15 +38,17 @@ const Card: React.FC<CardProps> = ({ setSelected, item }) => {
           setSelected(item);
         }}
         layoutId={`card-${item.id}`}
-        className="w-full bg-base-100 shadow-xl image-full cursor-pointer"
+        className="w-full shadow-xl cursor-pointer bg-base-100 image-full"
       >
         <Image
-          className="w-full bg-base-100 shadow-xl image-full cursor-pointer"
+          className="w-full shadow-xl cursor-pointer bg-base-100 image-full"
           src={item.url}
           alt={item.title}
           width={1080}
           height={1080}
           loading="lazy"
+          blurDataURL={item.blurDataURL}
+          placeholder="blur"
         />
       </motion.div>
     </div>

@@ -10,7 +10,7 @@ const HeroImages: React.FC<{
   useEffect(() => {
     const updateImageSize = () => {
       const size =
-        window.innerWidth < 768 ? 300 : window.innerWidth < 1280 ? 600 : "auto";
+        window.innerWidth < 768 ? 500 : window.innerWidth < 1280 ? 600 : "auto";
       setImageSize(size);
     };
 
@@ -28,12 +28,13 @@ const HeroImages: React.FC<{
         {images.map((item) => {
           const transformations = `tr=w-${imageSize}`;
           const url = `${item.url}?${transformations}`;
+          const blurDataURL = `${item.url}?tr=w-10,bl-10`;
 
           return (
             <Card
               key={item.id}
               setSelected={setSelected}
-              item={{ ...item, url }}
+              item={{ ...item, url, blurDataURL }}
             />
           );
         })}
