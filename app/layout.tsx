@@ -27,6 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
+        <link
+          rel="preload"
+          href="/fonts/roboto-latin-400.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <link rel="preconnect" href="https://ik.imagekit.io" />
       </Head>
       <body className={roboto.className}>
