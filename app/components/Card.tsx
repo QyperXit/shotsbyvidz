@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { imageKitLoader } from "../utils/imageLoader"; // Adjust the path based on your directory structure
 
 import React, { useEffect, useState } from "react";
 

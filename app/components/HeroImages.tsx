@@ -5,12 +5,16 @@ import Card from "./Card"; // Import the Card component
 const HeroImages: React.FC<{
   setSelected: React.Dispatch<React.SetStateAction<any>>;
 }> = ({ setSelected }) => {
-  const [imageSize, setImageSize] = useState<number | "auto">(600); // Default size for SSR
+  const [imageSize, setImageSize] = useState<number | "auto">(200); // Default size for SSR
 
   useEffect(() => {
     const updateImageSize = () => {
       const size =
-        window.innerWidth < 768 ? 500 : window.innerWidth < 1280 ? 600 : "auto";
+        window.innerWidth < 768
+          ? 900
+          : window.innerWidth < 1280
+          ? 1080
+          : "auto";
       setImageSize(size);
     };
 
@@ -28,13 +32,12 @@ const HeroImages: React.FC<{
         {images.map((item) => {
           const transformations = `tr=w-${imageSize}`;
           const url = `${item.url}?${transformations}`;
-          const blurDataURL = `${item.url}?tr=w-10,bl-10`;
-
+          const blurDataURL = `${item.url}?tr=w-20,bl-6`;
           return (
             <Card
               key={item.id}
               setSelected={setSelected}
-              item={{ ...item, url, blurDataURL }}
+              item={{ ...item, url: url, blurDataURL: blurDataURL }}
             />
           );
         })}
