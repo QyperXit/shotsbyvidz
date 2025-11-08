@@ -10,6 +10,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ setSelected, item }) => {
   const [loaded, setLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Set loaded to true when the component mounts
@@ -40,14 +41,20 @@ const Card: React.FC<CardProps> = ({ setSelected, item }) => {
         className="w-full shadow-xl cursor-pointer bg-base-100 image-full"
       >
         <Image
-          className="w-full shadow-xl cursor-pointer bg-base-100 image-full"
+          className={`duration-700 ease-in-out w-full shadow-xl cursor-pointer bg-base-100 image-full ${
+            isLoading
+              ? "scale-110 blur-2xl grayscale"
+              : "scale-100 blur-0 grayscale-0"
+          }`}
           src={item.url}
           alt={item.title}
           width={1080}
           height={1080}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 25vw, 20vw"
           loading="lazy"
           blurDataURL={item.blurDataURL}
           placeholder="blur"
+          onLoad={() => setIsLoading(false)}
         />
       </motion.div>
     </div>

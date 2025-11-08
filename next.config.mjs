@@ -19,16 +19,11 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/(.*)",
+        source: "/:all*(svg|jpg|jpeg|png|gif|webp|avif|ico|woff|woff2)",
         headers: [
           {
             key: "Cache-Control",
             value: "public, max-age=31536000, immutable", // Cache for 1 year
-          },
-          {
-            key: "Link",
-            value:
-              '</fonts/roboto-latin-400.woff2>; rel=preload; as=font; type="font/woff2"; crossorigin',
           },
         ],
       },

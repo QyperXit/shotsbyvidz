@@ -5,16 +5,16 @@ import Card from "./Card"; // Import the Card component
 const HeroImages: React.FC<{
   setSelected: React.Dispatch<React.SetStateAction<any>>;
 }> = ({ setSelected }) => {
-  const [imageSize, setImageSize] = useState<number | "auto">(200); // Default size for SSR
+  const [imageSize, setImageSize] = useState<number>(1080); // Default size for SSR
 
   useEffect(() => {
     const updateImageSize = () => {
       const size =
-        window.innerWidth < 768
-          ? 900
+        window.innerWidth < 640
+          ? 480
           : window.innerWidth < 1280
-          ? 1080
-          : "auto";
+          ? 720
+          : 1080;
       setImageSize(size);
     };
 

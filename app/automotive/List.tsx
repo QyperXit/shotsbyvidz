@@ -1,50 +1,9 @@
-import { motion } from "framer-motion";
-import Image from "next/image";
 import React from "react";
 
+import GalleryCard from "../components/GalleryCard";
 import items from "../../public/automotive/auto";
 
 type ItemType = (typeof items)[0]; // Assuming items is an array of objects, choose the index that represents one item
-
-// Define CardProps interface with the correct types
-interface CardProps {
-  setSelected: React.Dispatch<React.SetStateAction<ItemType>>;
-  item: ItemType;
-}
-
-const Card: React.FC<CardProps> = ({ setSelected, item }) => {
-  return (
-    <div className="mb-4 w-full inline-block">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{
-          scale: 1.025,
-          transition: {
-            duration: 0.2,
-          },
-        }}
-        whileTap={{
-          scale: 0.95,
-        }}
-        onClick={() => {
-          setSelected(item);
-        }}
-        className="  w-full shadow-xl image-full cursor-pointer"
-        layoutId={`card-${item.id}`}
-      >
-        <Image
-          src={item.url}
-          alt={String(item.id)}
-          width={1080}
-          height={1080}
-          loading="lazy"
-        />
-      </motion.div>
-    </div>
-  );
-};
 
 const List: React.FC<{
   setSelected: React.Dispatch<React.SetStateAction<ItemType>>;
@@ -53,7 +12,11 @@ const List: React.FC<{
     <div className="bg-black p-4 px-[min(5vw,20em)]">
       <div className=" columns-1 sx:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-5 bg-black">
         {items.map((item) => (
-          <Card key={item.id} setSelected={setSelected} item={item} />
+          <GalleryCard
+            key={item.id}
+            item={item}
+            onSelect={(selectedItem) => setSelected(selectedItem)}
+          />
         ))}
       </div>
     </div>
