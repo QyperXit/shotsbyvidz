@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback } from "react";
 
 import GalleryCard from "../components/GalleryCard";
+import { useGalleryData } from "../hooks/useGalleryData";
 
 type ItemType = {
   id: number;
@@ -12,26 +13,11 @@ type ItemType = {
 const List: React.FC<{
   setSelected: React.Dispatch<React.SetStateAction<ItemType | null>>;
 }> = ({ setSelected }) => {
-  const [items, setItems] = useState<ItemType[]>([]);
-
-  useEffect(() => {
-    let isMounted = true;
-    import("../../public/automotive/auto")
-      .then((module) => {
-        if (isMounted) {
-          setItems(module.default);
-        }
-      })
-      .catch(() => {
-        if (isMounted) {
-          setItems([]);
-        }
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  const loader = useCallback(
+    () => import("../../public/automotive/auto").then((module) => module.default),
+    [],
+  );
+  const items = useGalleryData<ItemType[]>("automotive", loader) ?? [];
 
   return (
     <div className="bg-black p-4 px-[min(5vw,20em)]">

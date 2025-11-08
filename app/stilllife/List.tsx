@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback } from "react";
 
 import GalleryCard from "../components/GalleryCard";
+import { useGalleryData } from "../hooks/useGalleryData";
 
 type StillItem = {
   id: number;
@@ -14,26 +15,11 @@ interface ListProps {
 }
 
 const List: React.FC<ListProps> = ({ setSelected }) => {
-  const [items, setItems] = useState<StillItem[]>([]);
-
-  useEffect(() => {
-    let isMounted = true;
-    import("../../public/still/data")
-      .then((module) => {
-        if (isMounted) {
-          setItems(module.default);
-        }
-      })
-      .catch(() => {
-        if (isMounted) {
-          setItems([]);
-        }
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  const loader = useCallback(
+    () => import("../../public/still/data").then((module) => module.default),
+    [],
+  );
+  const items = useGalleryData<StillItem[]>("stilllife", loader) ?? [];
 
   return (
     <div className="bg-black p-4 px-[min(5vw,20em)]">

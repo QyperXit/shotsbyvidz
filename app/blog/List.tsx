@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useCallback } from "react";
+
+import { useGalleryData } from "../hooks/useGalleryData";
 
 type BlogItem = {
   id: number;
@@ -51,25 +53,12 @@ const Card = ({ setSelected, item }) => {
 };
 
 const List = ({ setSelected }) => {
-  const [items, setItems] = useState<BlogItem[]>([]);
-
-  useEffect(() => {
-    let isMounted = true;
-    import("../../public/blogPosts/data")
-      .then((module) => {
-        if (isMounted) {
-          setItems(module.items);
-        }
-      })
-      .catch(() => {
-        if (isMounted) {
-          setItems([]);
-        }
-      });
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  const loader = useCallback(
+    () =>
+      import("../../public/blogPosts/data").then((module) => module.items),
+    [],
+  );
+  const items = useGalleryData<BlogItem[]>("blog", loader) ?? [];
 
   return (
     <div className="bg-black p-4 px-[min(5vw,20em)] max-w-[75em] mx-auto">

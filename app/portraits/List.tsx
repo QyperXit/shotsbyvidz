@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback } from "react";
 
 import GalleryCard from "../components/GalleryCard";
+import { useGalleryData } from "../hooks/useGalleryData";
 
 type PortraitItem = {
   id: number;
@@ -15,25 +16,12 @@ interface ListProps {
 }
 
 const List: React.FC<ListProps> = ({ setSelected }) => {
-  const [items, setItems] = useState<PortraitItem[]>([]);
-
-  useEffect(() => {
-    let isMounted = true;
-    import("../../public/portraits/dataSet")
-      .then((module) => {
-        if (isMounted) {
-          setItems(module.default);
-        }
-      })
-      .catch(() => {
-        if (isMounted) {
-          setItems([]);
-        }
-      });
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  const loader = useCallback(
+    () =>
+      import("../../public/portraits/dataSet").then((module) => module.default),
+    [],
+  );
+  const items = useGalleryData<PortraitItem[]>("portraits", loader) ?? [];
 
   return (
     <div className="bg-black p-4 px-[min(5vw,20em)]">
