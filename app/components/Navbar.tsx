@@ -11,8 +11,6 @@ import "../fontfamily.css";
 import IconModal from "./IconModal";
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <nav className="flex sm:flex-col flex-row justify-between sm:justify-center items-center gap-4 bg-black  md:py-28 px-[min(5vw,20em)] py-8">
       <Link
@@ -112,7 +110,7 @@ const FlyoutLink: React.FC<FlyoutLinkProps> = ({
             exit={{ opacity: 0, y: 15 }}
             style={{ translateX: "-50%" }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="absolute left-1/2 top-12 bg-white text-black"
+            className="absolute left-1/2 top-12 bg-white text-black z-50 shadow-xl"
           >
             <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent" />
             <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-white" />
@@ -139,7 +137,7 @@ const GalleriesContent = () => {
         <Link href="/nature" className="block hover:underline">
           Nature & Landscape Page
         </Link>
-        <Link href="automotive" className="block hover:underline">
+        <Link href="/automotive" className="block hover:underline">
           Automotive
         </Link>
         <Link href="/urban" className="block hover:underline">
