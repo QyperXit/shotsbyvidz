@@ -1,59 +1,33 @@
-import { motion } from "framer-motion";
-import Image from "next/image";
-import React from "react";
+"use client";
 
-import items from "../../public/automotive/auto";
+import React, { useCallback } from "react";
 
-type ItemType = (typeof items)[0]; // Assuming items is an array of objects, choose the index that represents one item
+import GalleryCard from "../components/GalleryCard";
+import { useGalleryData } from "../hooks/useGalleryData";
 
-// Define CardProps interface with the correct types
-interface CardProps {
-  setSelected: React.Dispatch<React.SetStateAction<ItemType>>;
-  item: ItemType;
-}
-
-const Card: React.FC<CardProps> = ({ setSelected, item }) => {
-  return (
-    <div className="mb-4 w-full inline-block">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{
-          scale: 1.025,
-          transition: {
-            duration: 0.2,
-          },
-        }}
-        whileTap={{
-          scale: 0.95,
-        }}
-        onClick={() => {
-          setSelected(item);
-        }}
-        className="  w-full shadow-xl image-full cursor-pointer"
-        layoutId={`card-${item.id}`}
-      >
-        <Image
-          src={item.url}
-          alt={String(item.id)}
-          width={1080}
-          height={1080}
-          loading="lazy"
-        />
-      </motion.div>
-    </div>
-  );
+type ItemType = {
+  id: number;
+  url: string;
 };
 
 const List: React.FC<{
-  setSelected: React.Dispatch<React.SetStateAction<ItemType>>;
+  setSelected: React.Dispatch<React.SetStateAction<ItemType | null>>;
 }> = ({ setSelected }) => {
+  const loader = useCallback(
+    () => import("../../public/automotive/auto").then((module) => module.default),
+    [],
+  );
+  const items = useGalleryData<ItemType[]>("automotive", loader) ?? [];
+
   return (
     <div className="bg-black p-4 px-[min(5vw,20em)]">
-      <div className=" columns-1 sx:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-5 bg-black">
+      <div className="columns-1 sx:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-5 bg-black max-w-screen-xl mx-auto">
         {items.map((item) => (
-          <Card key={item.id} setSelected={setSelected} item={item} />
+          <GalleryCard
+            key={item.id}
+            item={item}
+            onSelect={(selectedItem) => setSelected(selectedItem)}
+          />
         ))}
       </div>
     </div>

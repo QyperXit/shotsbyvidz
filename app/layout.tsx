@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-
 import { Roboto } from "next/font/google";
 
 import Footer from "./components/Footer";
@@ -25,6 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://ik.imagekit.io" />
+      </head>
       <body className={roboto.className}>
         <NavBar />
         {children}

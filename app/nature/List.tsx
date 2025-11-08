@@ -1,49 +1,37 @@
-import { motion } from "framer-motion";
-import Image from "next/image";
-import React from "react";
+"use client";
 
-import items from "../../public/nature/nature";
+import React, { useCallback } from "react";
 
-const Card = ({ setSelected, item }) => {
-  return (
-    <div className="mb-4 w-full inline-block">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{
-          scale: 1.025,
-          transition: {
-            duration: 0.2,
-          },
-        }}
-        whileTap={{
-          scale: 0.95,
-        }}
-        onClick={() => {
-          setSelected(item);
-        }}
-        layoutId={`card-${item.id}`}
-        className="  w-full shadow-xl image-full cursor-pointer"
-      >
-        <Image
-          src={item.url}
-          alt={item.title}
-          width={1080}
-          height={1080}
-          loading="lazy"
-        />
-      </motion.div>
-    </div>
-  );
+import GalleryCard from "../components/GalleryCard";
+import { useGalleryData } from "../hooks/useGalleryData";
+
+type NatureItem = {
+  id: number;
+  url: string;
+  alt: string;
 };
 
-const List = ({ setSelected }) => {
+interface ListProps {
+  setSelected: React.Dispatch<React.SetStateAction<NatureItem | null>>;
+}
+
+const List: React.FC<ListProps> = ({ setSelected }) => {
+  const loader = useCallback(
+    () =>
+      import("../../public/nature/nature").then((module) => module.default),
+    [],
+  );
+  const items = useGalleryData<NatureItem[]>("nature", loader) ?? [];
+
   return (
     <div className="bg-black p-4 px-[min(5vw,20em)]">
-      <div className=" columns-1 sx:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-5 bg-black">
+      <div className="gap-5 bg-black  columns-1 sx:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
         {items.map((item) => (
-          <Card key={item.id} setSelected={setSelected} item={item} />
+          <GalleryCard
+            key={item.id}
+            item={item}
+            onSelect={(selectedItem) => setSelected(selectedItem)}
+          />
         ))}
       </div>
     </div>
