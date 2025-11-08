@@ -1,8 +1,16 @@
+"use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { items } from "../../public/blogPosts/data";
+type BlogItem = {
+  id: number;
+  url: string;
+  title: string;
+  description: string;
+  tags: string[];
+};
 
 const Card = ({ setSelected, item }) => {
   return (
@@ -43,6 +51,26 @@ const Card = ({ setSelected, item }) => {
 };
 
 const List = ({ setSelected }) => {
+  const [items, setItems] = useState<BlogItem[]>([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    import("../../public/blogPosts/data")
+      .then((module) => {
+        if (isMounted) {
+          setItems(module.items);
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setItems([]);
+        }
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <div className="bg-black p-4 px-[min(5vw,20em)] max-w-[75em] mx-auto">
       <div className="gap-5 bg-black  columns-1 md:columns-2">

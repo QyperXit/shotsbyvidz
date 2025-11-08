@@ -1,13 +1,34 @@
 import React, { useEffect, useState } from "react";
-import images from "../../public/images/data"; // Import the images array
 import Card from "./Card"; // Import the Card component
+
+type HeroImage = {
+  id: number;
+  url: string;
+  title: string;
+  description: string;
+  tags: string[];
+};
 
 const HeroImages: React.FC<{
   setSelected: React.Dispatch<React.SetStateAction<any>>;
 }> = ({ setSelected }) => {
   const [imageSize, setImageSize] = useState<number>(1080); // Default size for SSR
+  const [images, setImages] = useState<HeroImage[]>([]);
 
   useEffect(() => {
+    let isMounted = true;
+    import("../../public/images/data")
+      .then((module) => {
+        if (isMounted) {
+          setImages(module.default);
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setImages([]);
+        }
+      });
+
     const updateImageSize = () => {
       const size =
         window.innerWidth < 640
@@ -22,6 +43,7 @@ const HeroImages: React.FC<{
     window.addEventListener("resize", updateImageSize);
 
     return () => {
+      isMounted = false;
       window.removeEventListener("resize", updateImageSize);
     };
   }, []);
