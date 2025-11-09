@@ -33,15 +33,14 @@ const Card = ({ item, onSelect }: CardProps) => (
     <button
       type="button"
       onClick={() => onSelect(item)}
-      className="group relative block overflow-hidden rounded-2xl"
+      className="group relative block overflow-hidden rounded-2xl aspect-[4/3]"
     >
       <Image
+        fill
         src={getBlogImageUrl(item.cover, { width: 1080, quality: 85 })}
         alt={item.cover.alt || item.title}
-        width={1080}
-        height={720}
         sizes="(min-width: 1024px) 45vw, 92vw"
-        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+        className="object-cover transition duration-500 group-hover:scale-105"
         loading="lazy"
       />
       <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
