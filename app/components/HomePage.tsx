@@ -1,4 +1,5 @@
 "use client";
+import { AnimatePresence } from "framer-motion"; // Add this import
 
 import React, { useState } from "react";
 import HeroImages from "./HeroImages";
@@ -9,7 +10,9 @@ const HomePage = () => {
   return (
     <>
       <HeroImages setSelected={setSelected} />
-      <Modal selected={selected} setSelected={setSelected} />
+      <AnimatePresence>
+        <Modal selected={selected} setSelected={setSelected} />
+      </AnimatePresence>
     </>
   );
 };

@@ -1,4 +1,5 @@
 "use client";
+import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import List from "./List";
 import StillModal from "./StillModal";
@@ -9,7 +10,11 @@ const StillLife = () => {
   return (
     <>
       <List setSelected={setSelected} />
-      <StillModal selected={selected} setSelected={setSelected} />
+      <AnimatePresence>
+        {selected && (
+          <StillModal selected={selected} setSelected={setSelected} />
+        )}
+      </AnimatePresence>
     </>
   );
 };

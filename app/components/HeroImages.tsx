@@ -16,18 +16,14 @@ const HeroImages: React.FC<{
   const [imageSize, setImageSize] = useState<number>(1080); // Default size for SSR
   const loader = useCallback(
     () => import("../../public/images/data").then((module) => module.default),
-    [],
+    []
   );
   const images = useGalleryData<HeroImage[]>("hero-images", loader) ?? [];
 
   useEffect(() => {
     const updateImageSize = () => {
       const size =
-        window.innerWidth < 640
-          ? 480
-          : window.innerWidth < 1280
-          ? 720
-          : 1080;
+        window.innerWidth < 640 ? 480 : window.innerWidth < 1280 ? 720 : 1080;
       setImageSize(size);
     };
 
