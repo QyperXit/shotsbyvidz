@@ -1,11 +1,50 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 
-const BlogModal = ({ selected, setSelected }) => {
+import {
+  type BlogPost,
+  getBlogImageUrl,
+} from "./data/posts";
+
+type BlogModalProps = {
+  selected: BlogPost | null;
+  setSelected: (post: BlogPost | null) => void;
+};
+
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString(undefined, {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+
+const BlogModal = ({ selected, setSelected }: BlogModalProps) => {
+  useEffect(() => {
+    if (!selected) {
+      return undefined;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelected(null);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [selected, setSelected]);
+
   if (!selected) {
     return null;
   }
+
+  const description = selected.body ?? selected.excerpt;
 
   return (
     <motion.div
@@ -13,49 +52,57 @@ const BlogModal = ({ selected, setSelected }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={() => setSelected(null)}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 cursor-pointer bg-black/50"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Blog post: ${selected.title}`}
     >
       <motion.div
-        initial={{ scale: 0.8, opacity: 0, y: 50 }}
+        initial={{ scale: 0.9, opacity: 0, y: 40 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
-        exit={{ scale: 0.8, opacity: 0, y: 50 }}
-        transition={{ type: "spring", stiffness: 300, damping: 30, duration: 0.4 }}
+        exit={{ scale: 0.9, opacity: 0, y: 40 }}
+        transition={{ type: "spring", stiffness: 260, damping: 26 }}
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-5xl max-h-[95vh] flex flex-col rounded-lg shadow-2xl overflow-hidden bg-black"
+        className="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-gradient-to-b from-black via-gray-950 to-black shadow-2xl"
       >
-        <motion.div initial={{ scale: 1.025 }} animate={{ scale: 1 }}>
+        <button
+          type="button"
+          onClick={() => setSelected(null)}
+          className="absolute right-5 top-5 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white transition hover:bg-white/20"
+          aria-label="Close"
+        >
+          ×
+        </button>
+        <motion.div initial={{ scale: 1.02 }} animate={{ scale: 1 }}>
           <Image
-            alt={selected.title || selected.id}
-            src={selected.url}
-            width={1080}
-            height={1080}
-            className="w-full h-auto max-h-[75vh] object-contain"
+            alt={selected.cover.alt || selected.title}
+            src={getBlogImageUrl(selected.cover, { width: 1600, quality: 90 })}
+            width={1600}
+            height={900}
+            className="h-full max-h-[65vh] w-full object-contain bg-black"
           />
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.3 }}
-          className="bg-gradient-to-r from-gray-900 to-black p-6"
+          transition={{ delay: 0.1, duration: 0.3 }}
+          className="space-y-4 p-6 text-white md:p-8"
         >
-          {selected.title && (
-            <h3 className="text-2xl font-bold mb-3 text-white">
-              {selected.title}
-            </h3>
-          )}
-          {selected.description && (
-            <p className="text-gray-300 mb-4">{selected.description}</p>
-          )}
-          {Array.isArray(selected.tags) && selected.tags.length > 0 && (
+          <p className="text-sm uppercase tracking-[0.3em] text-amber-400">
+            {formatDate(selected.publishedAt)}
+          </p>
+          <h3 className="text-3xl font-semibold">{selected.title}</h3>
+          {description && <p className="text-base text-gray-200">{description}</p>}
+          {selected.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
-              {selected.tags.map((tag: string) => (
-                <div
-                  key={tag}
-                  className="badge bg-amber-500/20 border border-amber-400 text-amber-400"
+              {selected.tags.map((tag) => (
+                <span
+                  key={`${selected.slug}-${tag}`}
+                  className="rounded-full border border-amber-400/40 bg-amber-500/10 px-3 py-1 text-xs uppercase tracking-wide text-amber-300"
                 >
                   {tag}
-                </div>
+                </span>
               ))}
             </div>
           )}
