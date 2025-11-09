@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import List from "./List";
 import UrbanModel from "./UrbanModal";
@@ -9,7 +10,11 @@ const UrbanPage = () => {
   return (
     <>
       <List setSelected={setSelected} />
-      <UrbanModel selected={selected} setSelected={setSelected} />
+      <AnimatePresence>
+        {selected && (
+          <UrbanModel selected={selected} setSelected={setSelected} />
+        )}
+      </AnimatePresence>
     </>
   );
 };

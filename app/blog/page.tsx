@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import BlogModal from "./BlogModal";
 import List from "./List";
@@ -9,7 +10,11 @@ const Page = () => {
   return (
     <>
       <List setSelected={setSelected} />
-      <BlogModal selected={selected} setSelected={setSelected} />
+      <AnimatePresence>
+        {selected && (
+          <BlogModal selected={selected} setSelected={setSelected} />
+        )}
+      </AnimatePresence>
     </>
   );
 };

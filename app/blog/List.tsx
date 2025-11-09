@@ -33,7 +33,6 @@ const Card = ({ setSelected, item }) => {
         onClick={() => {
           setSelected(item);
         }}
-        layoutId={`card-${item.id}`}
       >
         <Image
           src={item.url}

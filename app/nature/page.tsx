@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import List from "./List";
 import NatureModal from "./NatureModal";
@@ -9,7 +10,11 @@ const NatureLandscapePage = () => {
   return (
     <>
       <List setSelected={setSelected} />
-      <NatureModal selected={selected} setSelected={setSelected} />
+      <AnimatePresence>
+        {selected && (
+          <NatureModal selected={selected} setSelected={setSelected} />
+        )}
+      </AnimatePresence>
     </>
   );
 };

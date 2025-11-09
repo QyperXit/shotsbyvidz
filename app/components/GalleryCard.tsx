@@ -51,7 +51,6 @@ const GalleryCard = <T extends GalleryItem>({
         }}
         onClick={() => onSelect(item)}
         className="w-full shadow-xl cursor-pointer image-full"
-        layoutId={`card-${item.id}`}
       >
         <Image
           src={item.url}

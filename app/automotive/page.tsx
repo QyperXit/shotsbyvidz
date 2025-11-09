@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import AutoModal from "./AutoModal";
 import List from "./List";
@@ -9,7 +10,11 @@ const Automotive = () => {
   return (
     <>
       <List setSelected={setSelected} />
-      <AutoModal selected={selected} setSelected={setSelected} />
+      <AnimatePresence>
+        {selected && (
+          <AutoModal selected={selected} setSelected={setSelected} />
+        )}
+      </AnimatePresence>
     </>
   );
 };

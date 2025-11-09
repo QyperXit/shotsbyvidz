@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import List from "./List";
 import PortModal from "./PortModal";
@@ -9,7 +10,11 @@ const Portraits = () => {
   return (
     <>
       <List setSelected={setSelected} />
-      <PortModal selected={selected} setSelected={setSelected} />
+      <AnimatePresence>
+        {selected && (
+          <PortModal selected={selected} setSelected={setSelected} />
+        )}
+      </AnimatePresence>
     </>
   );
 };
