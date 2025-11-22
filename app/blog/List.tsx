@@ -48,7 +48,7 @@ const Card = ({ item, onSelect }: CardProps) => (
     
     <div className="flex flex-1 flex-col p-6 gap-4">
       <div className="flex items-center justify-between">
-        <p className="text-xs font-medium uppercase tracking-widest text-indigo-400 font-geist">
+        <p className="text-xs font-medium uppercase tracking-widest text-amber-400 font-geist">
           {formatDate(item.publishedAt)}
         </p>
         {item.tags.length > 0 && (
@@ -65,7 +65,7 @@ const Card = ({ item, onSelect }: CardProps) => (
         )}
       </div>
 
-      <h3 className="text-2xl font-semibold text-white font-geist group-hover:text-indigo-300 transition-colors">
+      <h3 className="text-2xl font-semibold text-white font-geist group-hover:text-amber-300 transition-colors">
         {item.title}
       </h3>
       
@@ -77,7 +77,7 @@ const Card = ({ item, onSelect }: CardProps) => (
         <button
           type="button"
           onClick={() => onSelect(item)}
-          className="inline-flex items-center text-sm font-medium text-white hover:text-indigo-300 transition-colors font-geist group/btn"
+          className="inline-flex items-center text-sm font-medium text-white hover:text-amber-300 transition-colors font-geist group/btn"
         >
           Read Story
           <svg 
@@ -115,7 +115,7 @@ const List = ({ setSelected }) => {
     <section className="min-h-screen px-6 lg:px-12 py-24">
       <div className="mx-auto max-w-[1400px] flex flex-col gap-16">
         <header className="text-center max-w-3xl mx-auto">
-          <p className="text-sm font-medium uppercase tracking-widest text-indigo-400 font-geist mb-4">
+          <p className="text-sm font-medium uppercase tracking-widest text-amber-400 font-geist mb-4">
             Latest Updates
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white font-geist tracking-tight mb-6">

@@ -31,7 +31,7 @@ const Contact = () => {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md lg:w-1/2"
       >
-        <p className="text-sm font-medium text-indigo-400 tracking-widest font-geist mb-4 uppercase">
+        <p className="text-sm font-medium text-amber-400 tracking-widest font-geist mb-4 uppercase">
           Contact
         </p>
         <h2 className="text-4xl md:text-5xl font-light text-white mb-6 font-geist tracking-tight">
@@ -58,7 +58,7 @@ const Contact = () => {
                 id="firstName"
                 name="name"
                 placeholder="Jane"
-                className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-neutral-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors font-geist"
+                className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-neutral-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors font-geist"
                 required
               />
             </div>
@@ -71,7 +71,7 @@ const Contact = () => {
                 id="lastName"
                 name="last_name"
                 placeholder="Doe"
-                className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-neutral-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors font-geist"
+                className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-neutral-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors font-geist"
                 required
               />
             </div>
@@ -86,7 +86,7 @@ const Contact = () => {
               id="email"
               name="email"
               placeholder="jane@example.com"
-              className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-neutral-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors font-geist"
+              className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-neutral-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors font-geist"
               required
             />
           </div>
@@ -100,14 +100,14 @@ const Contact = () => {
               name="message"
               placeholder="Tell me about your project..."
               rows={4}
-              className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-neutral-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors font-geist resize-none"
+              className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-neutral-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors font-geist resize-none"
               required
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full group relative inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-white transition-all duration-200 bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-neutral-900"
+            className="w-full group relative inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-white transition-all duration-200 bg-amber-600 rounded-lg hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 focus:ring-offset-neutral-900"
           >
             Send Message
           </button>

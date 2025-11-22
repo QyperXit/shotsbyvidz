@@ -94,7 +94,7 @@ const BlogModal = ({ selected, setSelected }: BlogModalProps) => {
           className="space-y-6 p-8 md:p-10 bg-neutral-900"
         >
           <div className="flex items-center justify-between">
-            <p className="text-sm font-medium uppercase tracking-widest text-indigo-400 font-geist">
+            <p className="text-sm font-medium uppercase tracking-widest text-amber-400 font-geist">
               {formatDate(selected.publishedAt)}
             </p>
             {selected.tags.length > 0 && (
