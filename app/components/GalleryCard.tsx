@@ -35,41 +35,48 @@ const GalleryCard = <T extends GalleryItem>({
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className={`inline-block w-full mb-4 ${className}`}>
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{
-          scale: 1.025,
-          transition: {
-            duration: 0.2,
-          },
-        }}
-        whileTap={{
-          scale: 0.95,
-        }}
-        onClick={() => onSelect(item)}
-        className="w-full shadow-xl cursor-pointer image-full"
-      >
-        <Image
-          src={item.url}
-          alt={item.alt || item.title || "Gallery item"}
-          width={item.width ?? 1080}
-          height={item.height ?? 1080}
-          loading="lazy"
-          sizes={sizes}
-          blurDataURL={item.blurDataURL}
-          placeholder={item.blurDataURL ? "blur" : "empty"}
-          onLoad={() => setIsLoading(false)}
-          className={`duration-700 ease-in-out w-full shadow-xl cursor-pointer image-full ${
-            isLoading
-              ? "scale-110 blur-2xl grayscale"
-              : "scale-100 blur-0 grayscale-0"
-          } ${imageClassName}`}
-        />
-      </motion.div>
-    </div>
+    <motion.article
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4 }}
+      className={`group relative w-full h-full overflow-hidden rounded-2xl ring-1 ring-neutral-800 bg-neutral-900/60 cursor-pointer ${className}`}
+      onClick={() => onSelect(item)}
+    >
+      <Image
+        src={item.url}
+        alt={item.alt || item.title || "Gallery item"}
+        width={item.width ?? 1080}
+        height={item.height ?? 1080}
+        loading="lazy"
+        sizes={sizes}
+        blurDataURL={item.blurDataURL}
+        placeholder={item.blurDataURL ? "blur" : "empty"}
+        onLoad={() => setIsLoading(false)}
+        className={`w-full h-full object-cover transition duration-700 group-hover:scale-[1.05] ${
+          isLoading
+            ? "scale-110 blur-xl grayscale"
+            : "scale-100 blur-0 grayscale-0"
+        } ${imageClassName}`}
+      />
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+        <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h4 className="text-lg font-semibold text-white mb-1 font-geist line-clamp-1">
+            {item.title || "Untitled"}
+          </h4>
+          <div className="flex items-center justify-between mt-2">
+            <button className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md text-white ring-1 ring-inset ring-white/20 hover:bg-white/20 transition inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" x2="12" y1="15" y2="3"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.article>
   );
 };
 

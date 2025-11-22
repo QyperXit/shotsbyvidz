@@ -3,8 +3,8 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 
 import {
-  type BlogPost,
-  getBlogImageUrl,
+    type BlogPost,
+    getBlogImageUrl,
 } from "./data/posts";
 
 type BlogModalProps = {
@@ -52,7 +52,7 @@ const BlogModal = ({ selected, setSelected }: BlogModalProps) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={() => setSelected(null)}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-950/90 backdrop-blur-sm p-4"
       role="dialog"
       aria-modal="true"
       aria-label={`Blog post: ${selected.title}`}
@@ -63,17 +63,20 @@ const BlogModal = ({ selected, setSelected }: BlogModalProps) => {
         exit={{ scale: 0.9, opacity: 0, y: 40 }}
         transition={{ type: "spring", stiffness: 260, damping: 26 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-gradient-to-b from-black via-gray-950 to-black shadow-2xl"
+        className="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-neutral-900 shadow-2xl ring-1 ring-white/10"
       >
         <button
           type="button"
           onClick={() => setSelected(null)}
-          className="absolute right-5 top-5 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white transition hover:bg-white/20"
+          className="absolute right-5 top-5 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white transition hover:bg-white/20 backdrop-blur-md"
           aria-label="Close"
         >
-          ×
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
         </button>
-        <motion.div initial={{ scale: 1.02 }} animate={{ scale: 1 }}>
+        <motion.div initial={{ scale: 1.02 }} animate={{ scale: 1 }} className="relative">
           <Image
             alt={selected.cover.alt || selected.title}
             src={getBlogImageUrl(selected.cover, { width: 1600, quality: 90 })}
@@ -81,29 +84,40 @@ const BlogModal = ({ selected, setSelected }: BlogModalProps) => {
             height={900}
             className="h-full max-h-[65vh] w-full object-contain bg-black"
           />
+          <div className="absolute inset-0 pointer-events-none ring-1 ring-white/5 rounded-t-3xl" />
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.3 }}
-          className="space-y-4 p-6 text-white md:p-8"
+          className="space-y-6 p-8 md:p-10 bg-neutral-900"
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-amber-400">
-            {formatDate(selected.publishedAt)}
-          </p>
-          <h3 className="text-3xl font-semibold">{selected.title}</h3>
-          {description && <p className="text-base text-gray-200">{description}</p>}
-          {selected.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {selected.tags.map((tag) => (
-                <span
-                  key={`${selected.slug}-${tag}`}
-                  className="rounded-full border border-amber-400/40 bg-amber-500/10 px-3 py-1 text-xs uppercase tracking-wide text-amber-300"
-                >
-                  {tag}
-                </span>
-              ))}
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-medium uppercase tracking-widest text-indigo-400 font-geist">
+              {formatDate(selected.publishedAt)}
+            </p>
+            {selected.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {selected.tags.map((tag) => (
+                  <span
+                    key={`${selected.slug}-${tag}`}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-neutral-400 font-geist"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+          
+          <h3 className="text-3xl md:text-4xl font-light text-white font-geist">{selected.title}</h3>
+          
+          {description && (
+            <div className="prose prose-invert max-w-none">
+              <p className="text-lg text-neutral-300 leading-relaxed font-geist font-light">
+                {description}
+              </p>
             </div>
           )}
         </motion.div>
