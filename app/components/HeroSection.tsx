@@ -12,7 +12,7 @@ const HeroSection = () => {
             autoPlay
             muted
             loop
-            className="object-cover w-full h-full opacity-85"
+            className="object-cover w-full h-full opacity-90"
           />
           {/* <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-4xl font-bold tracking-widest text-center uppercase text-white/20 font-geist">

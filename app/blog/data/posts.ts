@@ -215,7 +215,7 @@ export const posts = [
       alt: "Horse rider jumping gates!",
     },
     publishedAt: "2025-10-22",
-    tags: [...defaultTags],
+    tags: ["horse", "gates"],
   },
 ] satisfies BlogPost[];
 
