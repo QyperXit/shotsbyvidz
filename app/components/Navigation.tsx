@@ -31,11 +31,13 @@ const Navigation = () => {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-neutral-950/80 backdrop-blur-md border-b border-white/5"
-            : "bg-transparent"
-        }`}
+        // className={`sticky top-0 z-50 transition-all duration-300 ${
+        //   isScrolled
+        //     ? "bg-neutral-950/80 backdrop-blur-md border-b border-white/5"
+        //     : "bg-transparent"
+        // }`}
+
+        className={`sticky top-0 z-50 transition-all duration-300 bg-neutral-950/80 backdrop-blur-md border-b border-white/5`}
       >
         <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between animate-fade-slide-in">
           {/* Logo */}
@@ -47,11 +49,13 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="items-center hidden gap-8 md:flex">
             <Link
               href="/"
               className={`text-sm font-medium transition-colors font-geist ${
-                pathname === "/" ? "text-white" : "text-neutral-400 hover:text-white"
+                pathname === "/"
+                  ? "text-white"
+                  : "text-neutral-400 hover:text-white"
               }`}
             >
               Home
@@ -101,14 +105,14 @@ const Navigation = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-48"
+                    className="absolute w-48 pt-4 -translate-x-1/2 left-1/2 top-full"
                   >
-                    <div className="bg-neutral-900/90 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-xl overflow-hidden">
+                    <div className="p-2 overflow-hidden border shadow-xl bg-neutral-900/90 backdrop-blur-xl border-white/10 rounded-xl">
                       {galleryLinks.map((link) => (
                         <Link
                           key={link.name}
                           href={link.href}
-                          className="block px-4 py-2 text-sm text-neutral-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors font-geist"
+                          className="block px-4 py-2 text-sm transition-colors rounded-lg text-neutral-300 hover:text-white hover:bg-white/10 font-geist"
                         >
                           {link.name}
                         </Link>
@@ -122,7 +126,9 @@ const Navigation = () => {
             <Link
               href="/blog"
               className={`text-sm font-medium transition-colors font-geist ${
-                pathname === "/blog" ? "text-white" : "text-neutral-400 hover:text-white"
+                pathname === "/blog"
+                  ? "text-white"
+                  : "text-neutral-400 hover:text-white"
               }`}
             >
               Blog
@@ -130,7 +136,9 @@ const Navigation = () => {
             <Link
               href="/about"
               className={`text-sm font-medium transition-colors font-geist ${
-                pathname === "/about" ? "text-white" : "text-neutral-400 hover:text-white"
+                pathname === "/about"
+                  ? "text-white"
+                  : "text-neutral-400 hover:text-white"
               }`}
             >
               About
@@ -138,7 +146,9 @@ const Navigation = () => {
             <Link
               href="/contact"
               className={`text-sm font-medium transition-colors font-geist ${
-                pathname === "/contact" ? "text-white" : "text-neutral-400 hover:text-white"
+                pathname === "/contact"
+                  ? "text-white"
+                  : "text-neutral-400 hover:text-white"
               }`}
             >
               Contact
@@ -147,7 +157,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-white p-2"
+            className="p-2 text-white md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <svg
@@ -186,7 +196,7 @@ const Navigation = () => {
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-3 rounded-lg text-neutral-300 hover:text-white hover:bg-neutral-900 transition-colors font-geist text-sm font-medium"
+                className="px-4 py-3 text-sm font-medium transition-colors rounded-lg text-neutral-300 hover:text-white hover:bg-neutral-900 font-geist"
               >
                 Home
               </Link>
@@ -195,7 +205,7 @@ const Navigation = () => {
               <div>
                 <button
                   onClick={() => setMobileGalleryOpen(!mobileGalleryOpen)}
-                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-neutral-300 hover:text-white hover:bg-neutral-900 transition-colors font-geist text-sm font-medium"
+                  className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium transition-colors rounded-lg text-neutral-300 hover:text-white hover:bg-neutral-900 font-geist"
                 >
                   Galleries
                   <svg
@@ -223,13 +233,13 @@ const Navigation = () => {
                       exit={{ height: 0, opacity: 0 }}
                       className="overflow-hidden"
                     >
-                      <div className="pl-4 flex flex-col gap-1 py-1">
+                      <div className="flex flex-col gap-1 py-1 pl-4">
                         {galleryLinks.map((link) => (
                           <Link
                             key={link.name}
                             href={link.href}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="px-4 py-2 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-900 transition-colors font-geist text-sm"
+                            className="px-4 py-2 text-sm transition-colors rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-900 font-geist"
                           >
                             {link.name}
                           </Link>
@@ -243,21 +253,21 @@ const Navigation = () => {
               <Link
                 href="/blog"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-3 rounded-lg text-neutral-300 hover:text-white hover:bg-neutral-900 transition-colors font-geist text-sm font-medium"
+                className="px-4 py-3 text-sm font-medium transition-colors rounded-lg text-neutral-300 hover:text-white hover:bg-neutral-900 font-geist"
               >
                 Blog
               </Link>
               <Link
                 href="/about"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-3 rounded-lg text-neutral-300 hover:text-white hover:bg-neutral-900 transition-colors font-geist text-sm font-medium"
+                className="px-4 py-3 text-sm font-medium transition-colors rounded-lg text-neutral-300 hover:text-white hover:bg-neutral-900 font-geist"
               >
                 About
               </Link>
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-3 rounded-lg text-neutral-300 hover:text-white hover:bg-neutral-900 transition-colors font-geist text-sm font-medium"
+                className="px-4 py-3 text-sm font-medium transition-colors rounded-lg text-neutral-300 hover:text-white hover:bg-neutral-900 font-geist"
               >
                 Contact
               </Link>
