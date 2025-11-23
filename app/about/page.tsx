@@ -10,55 +10,60 @@ import about from "./about";
 
 const page = () => {
   return (
-    <div className="flex flex-col max-w-[1440px] mx-auto lg:px-24 xl:px-32 mb-24 md:flex-row my-auto gap-12 pt-12">
-      <motion.div
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-full md:w-1/2 m-auto px-6 md:px-0"
-      >
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
-          <Image
-            src={chaunPolaNeck}
-            width={1080}
-            height={1350}
-            alt="chaun picture"
-            className="object-cover w-full h-full"
-            placeholder="blur"
-          />
-        </div>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-col justify-center items-start w-full md:w-1/2 px-6 md:px-0"
-      >
-        <h1 className="text-white font-geist text-4xl font-light mb-8 tracking-tight">
-          {about[0].h1}
-        </h1>
-        
-        <div className="space-y-6">
-          {about[0].info.split("\n").map((line, index) => (
-            <p
-              className="text-neutral-400 text-base font-geist leading-relaxed"
-              key={index}
-            >
-              {line}
-            </p>
-          ))}
-        </div>
+    <div className="flex items-center justify-center min-h-[80vh] px-6 py-24 lg:px-12">
+      <div className="w-full max-w-[1200px] bg-neutral-900/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl">
+        <div className="flex flex-col gap-12 items-center lg:flex-row lg:gap-24">
+          {/* Image Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="w-full lg:w-1/2"
+          >
+            <div className="relative overflow-hidden shadow-2xl rounded-2xl ring-1 ring-white/10 aspect-[4/5]">
+              <Image
+                src={chaunPolaNeck}
+                width={1080}
+                height={1350}
+                alt="chaun picture"
+                className="object-cover w-full h-full transition-transform duration-700 hover:scale-105"
+                placeholder="blur"
+              />
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/60 to-transparent" />
+            </div>
+          </motion.div>
 
-        <Link
-          href="/contact"
-          className="mt-12 group relative inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-white transition-all duration-200 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white/20"
-        >
-          <span>Contact Me</span>
-          <svg className="w-4 h-4 ml-2 -mr-1 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </Link>
-      </motion.div>
+          {/* Content Section */}
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-col justify-center w-full lg:w-1/2"
+          >
+            <h1 className="mb-8 text-4xl font-light tracking-tight text-white font-geist">
+              {about[0].h1}
+            </h1>
+            
+            <div className="space-y-6">
+              {about[0].info.split("\n").map((line, index) => (
+                <p
+                  className="text-base leading-relaxed text-neutral-400 font-geist"
+                  key={index}
+                >
+                  {line}
+                </p>
+              ))}
+            </div>
+
+            <div className="pt-12">
+              <Link href="/contact" className="inline-block shiny-cta focus:outline-none">
+                <span>Contact Me</span>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 };
