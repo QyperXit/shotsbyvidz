@@ -11,7 +11,7 @@ const Footer = () => {
               ShotsByVidz
             </Link>
             <p className="text-neutral-400 text-sm font-geist max-w-md">
-              Capturing the world's beauty through the lens. High-quality photography for creators and dreamers.
+              Capturing life's most precious moments. Specializing in cinematic wedding videography and immersive event coverage.
             </p>
           </div>
           
