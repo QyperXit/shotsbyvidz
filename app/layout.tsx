@@ -54,7 +54,7 @@ export default function RootLayout({
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className={`min-h-screen text-neutral-100 bg-neutral-950 font-sans antialiased selection:bg-pink-500/30 ${inter.variable}`}>
+      <body className={`min-h-screen text-neutral-100 font-sans antialiased selection:bg-pink-500/30 ${inter.variable}`}>
         <JsonLd />
         <AnimatedBackground />
         <ScrollObserver />
