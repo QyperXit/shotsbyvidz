@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import AnimatedBackground from "./components/AnimatedBackground";
 import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
 import ScrollObserver from "./components/ScrollObserver";
@@ -32,6 +33,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className={`min-h-screen text-neutral-100 bg-neutral-950 font-sans antialiased selection:bg-pink-500/30 ${inter.variable}`}>
+        <AnimatedBackground />
         <ScrollObserver />
         <Navigation />
         {children}
