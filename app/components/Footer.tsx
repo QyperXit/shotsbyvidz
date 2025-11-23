@@ -31,12 +31,12 @@ const Footer = () => {
             <h4 className="text-sm font-semibold text-white mb-4 font-geist">Legal</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-sm text-neutral-400 hover:text-white transition font-geist">
+                <Link href="/privacy" className="text-sm text-neutral-400 hover:text-white transition font-geist">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-neutral-400 hover:text-white transition font-geist">
+                <Link href="/terms" className="text-sm text-neutral-400 hover:text-white transition font-geist">
                   Terms of Service
                 </Link>
               </li>

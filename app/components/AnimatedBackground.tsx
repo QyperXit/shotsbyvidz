@@ -33,11 +33,11 @@ const AnimatedBackground = () => {
         <div className="absolute top-0 left-0 w-full h-full z-0">
           <iframe
             src="https://my.spline.design/glowingplanetparticles-HmCVKutonlFn3Oqqe6DI9nWi/"
-            frameBorder="0"
             width="100%"
             height="100%"
-            className="w-full h-full"
+            className="w-full h-full border-none"
             id="aura-spline"
+            title="Animated Background"
           />
         </div>
       </div>
