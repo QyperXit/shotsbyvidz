@@ -32,16 +32,11 @@ const HeroSection = () => {
             Capturing the world from above with stunning clarity and depth.
           </p>
 
-          <button className="w-fit hidden md:flex group/btn relative overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-slate-50 translate-y-4 opacity-0 animate-[fadeSlideIn_0.8s_ease-out_0.5s_both]">
-            <span
-              className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite]
-               bg-[conic-gradient(from_90deg_at_50%_50%,#FBBF24_0%,#B45309_50%,#FBBF24_100%)]"
-            />
-            <span className="inline-flex items-center justify-center w-full h-full px-8 py-3 text-sm font-medium text-white transition-all rounded-full cursor-pointer bg-slate-950 backdrop-blur-3xl group-hover/btn:bg-slate-900">
-              {/* View Drone Gallery */}
-              Coming Soon
-            </span>
-          </button>
+          <div className="w-fit hidden md:flex translate-y-4 opacity-0 animate-[fadeSlideIn_0.8s_ease-out_0.5s_both]">
+            <button className="shiny-cta focus:outline-none">
+              <span>Coming Soon</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
