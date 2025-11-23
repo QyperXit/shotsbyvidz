@@ -28,7 +28,13 @@ export type BlogPost = {
   tags: string[];
 };
 
-const defaultTags = ["Mountains", "Aesthetic", "Pretty", "Scenic", "Rugged"] as const;
+const defaultTags = [
+  "Mountains",
+  "Aesthetic",
+  "Pretty",
+  "Scenic",
+  "Rugged",
+] as const;
 
 export const posts = [
   {
@@ -37,8 +43,7 @@ export const posts = [
     title: "Product Photography Ideas",
     excerpt:
       "Experimenting with a minimal product concept for a client, styled and edited entirely inside Darktable.",
-    body:
-      "I've been experimenting with a product photography concept for a client, using only Darktable.",
+    body: "I've been experimenting with a product photography concept for a client, using only Darktable.",
     cover: {
       kind: "imagekit",
       path: "manzil.jpg",
@@ -53,8 +58,7 @@ export const posts = [
     title: "Church Stretton Camp & Fish",
     excerpt:
       "Serene campsite moment where the local tap water steals the scene with smooth bokeh in the background.",
-    body:
-      "This photo captures a serene moment from a camping trip with friends, showcasing the gentle flow of local tap water set against a beautifully blurred backdrop.",
+    body: "This photo captures a serene moment from a camping trip with friends, showcasing the gentle flow of local tap water set against a beautifully blurred backdrop.",
     cover: {
       kind: "imagekit",
       path: "tapwater.jpg",
@@ -69,8 +73,7 @@ export const posts = [
     title: "A Church Next to a School",
     excerpt:
       "Quiet country lane discovery—a cemetery chapel sharing a fence line with a sleepy schoolyard.",
-    body:
-      "Taken along a quiet country lane, this photo shows a cemetery church next to a school, creating a serene scene in the countryside.",
+    body: "Taken along a quiet country lane, this photo shows a cemetery church next to a school, creating a serene scene in the countryside.",
     cover: {
       kind: "imagekit",
       path: "church.jpg",
@@ -85,8 +88,7 @@ export const posts = [
     title: "DJI Mini 2",
     excerpt:
       "Borrowed my friend's Mini 2 and immediately started pricing one out—the aerial perspective is intoxicating.",
-    body:
-      "This photo was captured using the DJI Mini 2, which belongs to my friend. I'm definitely considering getting one for myself. The drone shots it takes are truly amazing.",
+    body: "This photo was captured using the DJI Mini 2, which belongs to my friend. I'm definitely considering getting one for myself. The drone shots it takes are truly amazing.",
     cover: {
       kind: "imagekit",
       path: "drone.jpg",
@@ -101,8 +103,7 @@ export const posts = [
     title: "Deer Park Farm",
     excerpt:
       "Christmas at Deer Park Farm came with a gracious horse that insisted on being part of every frame.",
-    body:
-      "This photo features a horse that was part of the Airbnb where my wife and I spent a memorable Christmas.",
+    body: "This photo features a horse that was part of the Airbnb where my wife and I spent a memorable Christmas.",
     cover: {
       kind: "imagekit",
       path: "horse.jpg",
@@ -117,8 +118,7 @@ export const posts = [
     title: "Black & White Color Calibration",
     excerpt:
       "Pushed Darktable's Color Calibration module to sculpt this monochrome study of a church clock tower.",
-    body:
-      "This is a black and white photo I edited using the 'Color Calibration' module in Darktable.",
+    body: "This is a black and white photo I edited using the 'Color Calibration' module in Darktable.",
     cover: {
       kind: "imagekit",
       path: "churchClock.jpg",
@@ -148,8 +148,7 @@ export const posts = [
     title: "Engine Pool",
     excerpt:
       "Somewhere in Solihull—name forgotten—but the shoreline typography demanded a quick capture.",
-    body:
-      "This photograph was taken at a lake in Solihull. I can't quite recall the name of the area!",
+    body: "This photograph was taken at a lake in Solihull. I can't quite recall the name of the area!",
     cover: {
       kind: "imagekit",
       path: "lakeSign.jpg",
@@ -162,7 +161,8 @@ export const posts = [
     id: 9,
     slug: "swan-on-the-lake",
     title: "Swan",
-    excerpt: "A swan carving ripples across a glassy lake in the heart of nature.",
+    excerpt:
+      "A swan carving ripples across a glassy lake in the heart of nature.",
     body: "A swan gracefully gliding across a serene lake in the heart of nature.",
     cover: {
       kind: "imagekit",
@@ -176,7 +176,8 @@ export const posts = [
     id: 10,
     slug: "red-light-new-street",
     title: "Red Light",
-    excerpt: "Caught this moody glow while weaving through New Street Station in Birmingham.",
+    excerpt:
+      "Caught this moody glow while weaving through New Street Station in Birmingham.",
     body: "Captured at the bustling New Street Station in Birmingham.",
     cover: {
       kind: "imagekit",
@@ -188,41 +189,39 @@ export const posts = [
   },
   {
     id: 11,
-    slug: "whispers-of-the-sky",
-    title: "Whispers of the Sky",
+    slug: "red-rose-with-water",
+    title: "Red Rose",
     excerpt:
-      "Clouds drift lazily across the azure expanse, whispering tales of wonder and magic.",
-    body:
-      "As clouds drift lazily across the azure expanse, painting pictures in the sky, the heavens whisper tales of wonder and magic, inviting all to gaze upon their ever-changing beauty.",
+      "Caught this moody glow on a red rose jeweled with fresh water droplets.",
+    body: "Captured the delicate beauty of a red rose, its petals glistening with water droplets.",
     cover: {
-      kind: "external",
-      url: "https://images.unsplash.com/photo-1662436267874-4ab1145ade4a?auto=format&fit=crop&w=1886&q=80",
-      alt: "Cloud formations under a blue sky",
+      kind: "imagekit",
+      path: "rose.jpg",
+      alt: "Red Rose with water drops",
     },
-    publishedAt: "2024-03-15",
-    tags: [...defaultTags],
+    publishedAt: "2025-11-23",
+    tags: ["Red", "Rose"],
   },
   {
     id: 12,
-    slug: "whispers-of-the-horizon",
-    title: "Whispers of the Horizon",
+    slug: "horse-rider-jumping",
+    title: "Horse Rider",
     excerpt:
-      "Twilight paints the sky with pink and gold while the world slows into a quiet glow.",
-    body:
-      "As the sun dips below the horizon, painting the sky with hues of pink and gold, the world is bathed in the soft glow of twilight, a fleeting moment of beauty and tranquility.",
+      "A horse and rider soar over the gate, muscles taut and hearts in perfect sync.",
+    body: "In a surge of power and grace, the horse and rider clear the gate, hooves tucked and focus unwavering—an instant frozen mid-flight, all rhythm, courage, and control.",
     cover: {
-      kind: "external",
-      url: "https://images.unsplash.com/photo-1662514282655-438b87b04995?auto=format&fit=crop&w=687&q=80",
-      alt: "Sunset hues over the horizon",
+      kind: "imagekit",
+      path: "horsejump.jpg",
+      alt: "Horse rider jumping gates!",
     },
-    publishedAt: "2024-03-22",
+    publishedAt: "2025-10-22",
     tags: [...defaultTags],
   },
 ] satisfies BlogPost[];
 
 export const getBlogImageUrl = (
   cover: BlogCover,
-  options: ImageKitTransformOptions = {},
+  options: ImageKitTransformOptions = {}
 ) =>
   cover.kind === "imagekit"
     ? buildBlogImageUrl(cover.path, options)
