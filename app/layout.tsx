@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-// import { Roboto } from "next/font/google"; // Removed in favor of CDN for Aura fonts
+import { Inter } from "next/font/google";
 
 import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
+import ScrollObserver from "./components/ScrollObserver";
 import "./globals.css";
 
-// const roboto = Roboto({
-//   weight: "400",
-//   subsets: ["latin"],
-//   display: "swap",
-// });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "ShotsByVidz",
@@ -27,57 +28,14 @@ export default function RootLayout({
         <link rel="preconnect" href="https://ik.imagekit.io" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        <script src="https://unpkg.com/lucide@latest"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                const style = document.createElement("style");
-                style.textContent = \`
-                  .animate-on-scroll { animation-play-state: paused !important; }
-                  .animate-on-scroll.animate { animation-play-state: running !important; }
-                \`;
-                document.head.appendChild(style);
-                
-                const once = true;
-                if (!window.__inViewIO) {
-                  window.__inViewIO = new IntersectionObserver((entries) => {
-                    entries.forEach((entry) => {
-                      if (entry.isIntersecting) {
-                        entry.target.classList.add("animate");
-                        if (once) window.__inViewIO.unobserve(entry.target);
-                      }
-                    });
-                  }, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" });
-                }
-                
-                window.initInViewAnimations = function (selector = ".animate-on-scroll") {
-                  document.querySelectorAll(selector).forEach((el) => {
-                    window.__inViewIO.observe(el);
-                  });
-                };
-                
-                document.addEventListener("DOMContentLoaded", () => window.initInViewAnimations());
-              })();
-            `,
-          }}
-        />
       </head>
-      <body className="min-h-screen text-neutral-100 bg-neutral-950 font-sans antialiased selection:bg-pink-500/30">
+      <body className={`min-h-screen text-neutral-100 bg-neutral-950 font-sans antialiased selection:bg-pink-500/30 ${inter.variable}`}>
+        <ScrollObserver />
         <Navigation />
         {children}
         <Footer />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-              }
-            `,
-          }}
-        />
       </body>
     </html>
   );
