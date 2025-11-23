@@ -62,15 +62,18 @@ const GalleryCard = <T extends GalleryItem>({
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
         <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-          <h4 className="text-lg font-semibold text-white mb-1 font-geist line-clamp-1">
-            {item.title || "Untitled"}
-          </h4>
+          {item.title && item.title !== "Untitled" && (
+            <h4 className="text-lg font-semibold text-white mb-1 font-geist line-clamp-1">
+              {item.title}
+            </h4>
+          )}
           <div className="flex items-center justify-between mt-2">
             <button className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md text-white ring-1 ring-inset ring-white/20 hover:bg-white/20 transition inline-flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" x2="12" y1="15" y2="3"></line>
+                <path d="M15 3h6v6"></path>
+                <path d="M9 21H3v-6"></path>
+                <path d="M21 3l-7 7"></path>
+                <path d="M3 21l7-7"></path>
               </svg>
             </button>
           </div>
