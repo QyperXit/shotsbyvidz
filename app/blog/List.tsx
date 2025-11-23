@@ -100,7 +100,7 @@ const List = ({ setSelected }) => {
     [],
   );
   const data = useGalleryData<BlogPost[]>("blog", loader);
-  const posts = data ?? [];
+  const posts = useMemo(() => data ?? [], [data]);
 
   const sortedPosts = useMemo(
     () =>

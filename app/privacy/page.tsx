@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
             <section className="space-y-3">
               <h2 className="text-xl font-medium text-white">1. Introduction</h2>
               <p>
-                Welcome to <strong>ShotsByVidz</strong> ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regards to your personal information, please contact us at <a href="mailto:shaunlm@live.co.uk" className="text-amber-400 hover:text-amber-300 transition-colors">shaunlm@live.co.uk</a>.
+                Welcome to <strong>ShotsByVidz</strong> (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regards to your personal information, please contact us at <a href="mailto:shaunlm@live.co.uk" className="text-amber-400 hover:text-amber-300 transition-colors">shaunlm@live.co.uk</a>.
               </p>
             </section>
 

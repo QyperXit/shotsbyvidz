@@ -46,7 +46,7 @@ const Contact = () => {
                 Get in touch
               </h2>
               <p className="text-neutral-400 font-geist">
-                Have a project in mind? Let's create something beautiful together.
+                Have a project in mind? Let&apos;s create something beautiful together.
                 <br />
                 <span className="block mt-2 text-white">Shaunlm@live.co.uk</span>
               </p>
