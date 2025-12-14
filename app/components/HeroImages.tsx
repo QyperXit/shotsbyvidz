@@ -13,7 +13,7 @@ type HeroImage = {
 const HeroImages: React.FC<{
   setSelected: React.Dispatch<React.SetStateAction<any>>;
 }> = ({ setSelected }) => {
-  const [imageSize, setImageSize] = useState<number>(1080); // Default size for SSR
+  const [imageSize, setImageSize] = useState<number>(640); // Default size for mobile-first loading
   const loader = useCallback(
     () => import("../../public/images/data").then((module) => module.default),
     []

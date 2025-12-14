@@ -52,7 +52,19 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" 
+          rel="stylesheet"
+          media="print"
+          // @ts-ignore
+          onLoad="this.media='all'"
+        />
+        <noscript>
+          <link 
+            href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" 
+            rel="stylesheet"
+          />
+        </noscript>
       </head>
       <body className={`min-h-screen text-neutral-100 font-sans antialiased selection:bg-pink-500/30 ${inter.variable}`}>
         <JsonLd />
