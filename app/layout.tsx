@@ -60,6 +60,7 @@ export default function RootLayout({
           onLoad="this.media='all'"
         />
         <noscript>
+          {/* eslint-disable-next-line @next/next/no-page-custom-font */}
           <link 
             href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" 
             rel="stylesheet"

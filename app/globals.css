@@ -147,7 +147,7 @@ body {
   mask-image: conic-gradient(from calc(var(--gradient-angle) + 45deg), black, transparent 10% 90%, black);
   border-radius: inherit;
   opacity: 0.4;
-  pointer-events: none;
+
 }
 
 .shiny-cta::after {
