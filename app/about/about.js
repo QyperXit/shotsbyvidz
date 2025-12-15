@@ -1,16 +1,15 @@
 const about = [
   {
-    h1: "ShotByVidz - Birmingham \nPhotographer",
-    info: `Hello and welcome! I'm Shaun, an amateur photographer based in Birmingham. I discovered my love for photography as a hobby and have been honing my skills ever since.
+    h1: "ShotByVidz - Birmingham \nCommercial & FPV Drone Photographer",
+    info: `Hello and welcome! I'm Shaun, a photographer and CAA-certified drone pilot based in Birmingham. What began as a passion for capturing images has evolved into a pursuit into providing high-impact visual solutions.
 
-I have a passion for capturing life's significant moments and conveying stories through my images. I experiment with various photography styles, from capturing wildlife in nature to preserving the energy of city life in street photography, and creating art through still life compositions. Each moment in life holds its own importance, and I try to reflect that in my photography.
+I specialize in Wedding Videography and Live Events, holding an A2 Certificate of Competency (A2 CofC) for safe and legal operations. My expertise spans two distinct aerial styles: cinematic drone shots for wedding films and dynamic FPV (First Person View) piloting that immerses viewers in the moment.
 
-I'm always keen to try new challenges and handle new situations. Whether you're seeking stunning wildlife photos, energetic street shots, or showcasing the art in still life, I'm up to the job. My objective is to deliver my clients with exceptional and personal images that accurately depict the essence of their experiences.
+The addition of FPV allows me to offer something truly unique—immersive, cinematic fly-throughs that dive into the action. This style is perfect for capturing the energy of weddings, festivals, and automotive events, or creating seamless "one-shot" tours through venues.
 
-In my free time, I enjoy enhancing my photography and editing skills through studying, reading, and researching new techniques. I am always exploring ways to improve my craft."
+While I focus on capturing special moments, my artistic background in street and still life photography ensures every frame is composed with creativity and care. I am committed to pushing the boundaries of what's possible, constantly refining my flight skills and editing techniques.
 
-If you're interested in working with me, whether for personal or commercial projects, I would be honored to bring my passion and creativity to your project. Feel free to take a look at my portfolio and get in touch with me to discuss your photography needs.`,
+Whether you need a breathtaking wedding film, high-energy event coverage, or unique FPV content, I’m ready to deliver. Feel free to get in touch to discuss your project.`,
   },
 ];
-
 export default about;

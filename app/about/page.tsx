@@ -10,46 +10,60 @@ import about from "./about";
 
 const page = () => {
   return (
-    <div className="flex  flex-col  max-w-[1440px] mx-auto lg:px-24 xl:px-32 bg-black mb-8 md:flex-row my-auto">
-      <motion.div
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-[60%] m-auto  bg-black"
-      >
-        <Image
-          src={chaunPolaNeck}
-          width={1080}
-          height={1350}
-          alt="chaun picture"
-          className="object-contain   "
-          placeholder="blur"
-        />
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className=" bg-[#EEEEEE] flex flex-col justify-center items-center w-[90%] md:w-[60%] px-[2.5em] sm:px-[2em] lg:px-[5em] py-12 lg:py-32 md:py-3 m-auto"
-      >
-        <h1 className="  text-zinc-700   w-fit text-3xl  text-center mb-6 ">
-          {about[0].h1}
-        </h1>
-        {about[0].info.split("\n").map((line, index) => (
-          <p
-            className="text-zinc-700 text-sm text-center  mt-2 leading-[1.5rem]"
-            key={index}
+    <div className="flex items-center justify-center min-h-[80vh] px-6 py-24 lg:px-12">
+      <div className="w-full max-w-[1200px] bg-neutral-900/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl">
+        <div className="flex flex-col gap-12 items-center lg:flex-row lg:gap-24">
+          {/* Image Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="w-full lg:w-1/2"
           >
-            {line}
-          </p>
-        ))}
-        <Link
-          href="/contact"
-          className="bg-[#860C0C]  text-white  px-10 py-5 mt-16 hover:bg-[#880c0c8e] transition duration-200 ease-in"
-        >
-          Contact Me
-        </Link>
-      </motion.div>
+            <div className="relative overflow-hidden shadow-2xl rounded-2xl ring-1 ring-white/10 aspect-[4/5]">
+              <Image
+                src={chaunPolaNeck}
+                width={1080}
+                height={1350}
+                alt="chaun picture"
+                className="object-cover w-full h-full transition-transform duration-700 hover:scale-105"
+                placeholder="blur"
+              />
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/60 to-transparent" />
+            </div>
+          </motion.div>
+
+          {/* Content Section */}
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-col justify-center w-full lg:w-1/2"
+          >
+            <h1 className="mb-8 text-4xl font-light tracking-tight text-white font-geist">
+              {about[0].h1}
+            </h1>
+            
+            <div className="space-y-6">
+              {about[0].info.split("\n").map((line, index) => (
+                <p
+                  className="text-base leading-relaxed text-neutral-400 font-geist"
+                  key={index}
+                >
+                  {line}
+                </p>
+              ))}
+            </div>
+
+            <div className="pt-12">
+              <Link href="/contact" className="inline-block shiny-cta focus:outline-none">
+                <span>Contact Me</span>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 };

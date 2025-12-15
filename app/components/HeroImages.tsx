@@ -13,7 +13,7 @@ type HeroImage = {
 const HeroImages: React.FC<{
   setSelected: React.Dispatch<React.SetStateAction<any>>;
 }> = ({ setSelected }) => {
-  const [imageSize, setImageSize] = useState<number>(1080); // Default size for SSR
+  const [imageSize, setImageSize] = useState<number>(640); // Default size for mobile-first loading
   const loader = useCallback(
     () => import("../../public/images/data").then((module) => module.default),
     []
@@ -36,8 +36,13 @@ const HeroImages: React.FC<{
   }, []);
 
   return (
-    <div className="bg-black p-4 px-[min(5vw,20em)]">
-      <div className="gap-5 columns-1 sx:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
+    <div className="w-full max-w-[1600px] mx-auto px-6 lg:px-12 pb-24">
+      <div className="mb-12">
+        <h2 className="text-2xl font-light tracking-widest text-white font-geist uppercase mb-2">Featured Work</h2>
+        <div className="h-px w-24 bg-gradient-to-r from-amber-500 to-transparent"></div>
+      </div>
+      
+      <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-4 auto-rows-[200px] md:[&>*:nth-child(1)]:row-span-2 md:[&>*:nth-child(2)]:row-span-2 md:[&>*:nth-child(2)]:col-span-2 md:[&>*:nth-child(5)]:col-span-2 md:[&>*:nth-child(7)]:row-span-2 md:[&>*:nth-child(8)]:row-span-2 md:[&>*:nth-child(8)]:col-span-2">
         {images.map((item) => {
           const transformations = `tr=w-${imageSize}`;
           const url = `${item.url}?${transformations}`;
